@@ -68,7 +68,9 @@ class ArticleAdmin extends Admin
             ->add('title')
             ->add('category')
             ->add('authorName')
-            ->add('published')
+            ->add('published', null, array(
+                'required' => false,
+            ))
             ->add('content', null, array(
                 'attr' => array(
                     'class' => 'ckeditor',
