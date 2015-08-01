@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Article
@@ -58,13 +59,19 @@ class Article
     protected $published = false;
 
     /**
+     * @Gedmo\Slug(fields={"id", "title"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    protected $slug;
+
+    /**
      * @var ArrayCollection $categories
      *
      * @Assert\NotNull(message="Veuillez associer l'article à une catégorie")
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ArticleCategory", inversedBy="articles")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      */
-    private $category;
+    protected $category;
 
     /**
      * @return string
@@ -200,5 +207,29 @@ class Article
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Article
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

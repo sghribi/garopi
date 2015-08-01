@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * ArticleCategory
@@ -42,12 +43,18 @@ class ArticleCategory
     protected $order;
 
     /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    protected $slug;
+
+    /**
      * @var ArrayCollection $gangs
      *
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article", mappedBy="category", fetch="EAGER")
      * @ORM\OrderBy({"createdAt" = "DESC"})
      */
-    private $articles;
+    protected $articles;
 
     /**
      * @return string
@@ -163,5 +170,29 @@ class ArticleCategory
     public function getNbArticles()
     {
         return $this->articles->count();
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return ArticleCategory
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

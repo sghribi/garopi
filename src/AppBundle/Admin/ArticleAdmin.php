@@ -43,6 +43,7 @@ class ArticleAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('title', null, array('editable' => true))
+            ->add('slug')
             ->add('category', null, array('editable' => true))
             ->add('authorName', null, array('editable' => true))
             ->add('createdAt')
@@ -76,6 +77,7 @@ class ArticleAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('title')
+            ->add('slug')
             ->add('category')
             ->add('authorName')
             ->add('createdAt')
