@@ -1,0 +1,33 @@
+security:
+    providers:
+        chain_provider:
+            chain:
+                provider: [bdd]
+        bdd:
+            id: app.security.user_authentication
+
+    encoders:
+        AppBundle\Entity\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
+            security: false
+
+        myecp_firewall_cas:
+            pattern: ^/.*$
+            anonymous: ~
+            trusted_sso:
+                manager: admin_sso
+                login_action: false
+                logout_action: 'AppBundle:Homepage:Logout'
+                create_users: false
+                check_path: /login_check
+
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/.*$, roles: ROLE_USER }

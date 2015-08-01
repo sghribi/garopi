@@ -1,0 +1,25 @@
+# This file is a "template" of what your parameters.yml file should look like
+parameters:
+    database_driver:   pdo_pgsql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     garopi
+    database_user:     garopi
+    database_password: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+
+    # A secret key that's used to generate certain security-related tokens
+    secret:            5YrHDAayk4Y858s2gJLx3XUfty9V23jZjZc4pG8u83ZS2g4Qj9
+    site_name:         Garopi
+
+    bind_dn:           uid=garopi,ou=applications,dc=campus,dc=ecp,dc=fr
+    ldap_password:     ~
+    

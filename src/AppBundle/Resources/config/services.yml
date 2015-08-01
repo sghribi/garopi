@@ -1,0 +1,38 @@
+services:
+    gedmo_doctrine_extensions.listener.ip_traceable:
+        class: Gedmo\IpTraceable\IpTraceableListener
+        public: false
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+        tags:
+          - { name: doctrine.event_subscriber, connection: default}
+
+    alterphp_doctrine_extensions.event_listener.ip_trace:
+        class: AppBundle\EventListener\IpTraceSubscriber
+        scope: request
+        arguments:
+          - @gedmo_doctrine_extensions.listener.ip_traceable
+          - @request
+        tags:
+          - { name: kernel.event_subscriber }
+
+    app.security.user_authentication:
+        class: AppBundle\Service\UserAuthenticationService
+        arguments:
+            - @doctrine.orm.default_entity_manager
+            - @app.service.ldap
+
+    app.service.ldap:
+        class: AppBundle\Service\LdapService
+        arguments:
+            - %ldap%
+
+    # Sonata
+    sonata.admin.user:
+        class: AppBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Users", label: "Users" }
+        arguments:
+            - ~
+            - AppBundle\Entity\User
+            - ~

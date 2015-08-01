@@ -1,0 +1,15 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+
+{% include 'AppBundle::menu.html.twig' %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h2>Hello world!</h2>
+  </div>
+
+  {{ dump(app.user) }}
+</div>
+
+{% endblock %}

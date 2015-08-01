@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="{{ site_name }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <title>{{ title|default(site_name) }}</title>
+
+    {% stylesheets output="css/main.css"
+      '@AppBundle/Resources/public/less/main.less'
+      '../vendor/rstacruz/nprogress/nprogress.css'
+    %}
+    <link href="{{ asset_url }}" rel="stylesheet" media="screen">
+    {% endstylesheets %}
+    {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+
+    {% javascripts output="js/main.js"
+      'js/jquery.js'
+      'js/bootstrap.js'
+      '../vendor/ftlabs/fastclick/fastclick.js'
+      '../vendor/rstacruz/nprogress/nprogress.js'
+      'bundles/fosjsrouting/js/router.js'
+      '@AppBundle/Resources/public/js/main.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
+    {% block stylesheets %}{% endblock %}
+  </head>
+
+  <body class="{{ body_class|default('') }}">
+  {% block body %}{% endblock %}
+  {% block javascripts %}{% endblock %}
+  </body>
+</html>

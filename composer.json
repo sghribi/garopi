@@ -1,0 +1,132 @@
+{
+    "name": "symfony/framework-standard-edition",
+    "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
+    "autoload": {
+        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "2.7.*",
+        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
+        "doctrine/dbal": "<2.5",
+        "doctrine/doctrine-bundle": "~1.2",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~3.0,>=3.0.12",
+        "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
+        "incenteev/composer-parameter-handler": "~2.0",
+        "doctrine/migrations": "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "braincrafted/bootstrap-bundle": "2.1.*@dev",
+        "twbs/bootstrap": "3.3.4",
+        "jquery/jquery":  "1.11.*",
+        "oyejorge/less.php": "~1.5",
+        "ftlabs/fastclick": "1.0.6",
+        "rstacruz/nprogress": "v0.1.6",
+        "friendsofsymfony/jsrouting-bundle": "2.0.*@dev",
+        "jasny/bootstrap": "dev-master",
+        "fortawesome/font-awesome": "4.3.0",
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "gedmo/doctrine-extensions": "~2.3",
+        "lipis/bootstrap-social": "4.9.0",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/core-bundle": "dev-master",
+        "sonata-project/block-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "hautelook/alice-bundle": "^0.2.0",
+        "lunetics/locale-bundle": "~2.4",
+        "besimple/sso-auth-bundle": "1.0.*@dev"
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~2.3"
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
+        ],
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "php app/console braincrafted:bootstrap:generate",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "php app/console braincrafted:bootstrap:generate",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.6-dev"
+        }
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "jquery/jquery",
+                "version": "1.11.1",
+                "dist": {
+                    "url": "http://code.jquery.com/jquery-1.11.1.js",
+                    "type": "file"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ftlabs/fastclick",
+                "version": "1.0.6",
+                "dist": {
+                    "url": "https://raw.githubusercontent.com/ftlabs/fastclick/v1.0.6/lib/fastclick.js",
+                    "type": "file"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "rstacruz/nprogress",
+                "version": "v0.1.6",
+                "dist": {
+                    "url": "https://github.com/rstacruz/nprogress/archive/v0.1.6.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "lipis/bootstrap-social",
+                "version": "4.9.0",
+                "dist": {
+                    "url": "https://github.com/lipis/bootstrap-social/archive/4.9.0.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ]
+}
