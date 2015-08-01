@@ -39,7 +39,8 @@
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "hautelook/alice-bundle": "^0.2.0",
         "lunetics/locale-bundle": "~2.4",
-        "besimple/sso-auth-bundle": "1.0.*@dev"
+        "besimple/sso-auth-bundle": "1.0.*@dev",
+        "egeloen/ckeditor-bundle": "~2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
