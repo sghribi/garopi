@@ -5,9 +5,9 @@ namespace AppBundle\DataFixtures\ORM;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
 /**
- * Class UserLoader
+ * Class DataLoader
  */
-class UserLoader extends DataFixtureLoader
+class DataLoader extends DataFixtureLoader
 {
     /**
      * {@inheritdoc}
@@ -15,7 +15,7 @@ class UserLoader extends DataFixtureLoader
     protected function getFixtures()
     {
         return  array(
-            __DIR__ . '/users.yml',
+            __DIR__ . '/article_categories.yml',
         );
     }
 }

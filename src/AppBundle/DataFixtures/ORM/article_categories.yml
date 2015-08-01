@@ -1,0 +1,13 @@
+AppBundle\Entity\ArticleCategory:
+    centrale:
+        name: "Centrale"
+        order: 1
+    associatif:
+        name: "Associatif"
+        order: 2
+    science:
+        name: "Science"
+        order: 3
+    divers:
+        name: "Divers"
+        order: 4

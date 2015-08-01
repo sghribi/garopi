@@ -31,6 +31,7 @@ class UserAdmin extends Admin
             ->add('email')
             ->add('firstName')
             ->add('lastName')
+            ->add('roles')
         ;
     }
     /**
@@ -44,6 +45,8 @@ class UserAdmin extends Admin
             ->add('email')
             ->add('firstName')
             ->add('lastName')
+            ->add('lastLogin')
+            ->add('roles')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -71,6 +74,15 @@ class UserAdmin extends Admin
                 ->add('expired', null, array('required' => false))
                 ->add('enabled', null, array('required' => false))
                 ->add('credentialsExpired', null, array('required' => false))
+                ->add('roles', 'choice', array(
+                    'choices' => array(
+                        'ROLE_ADMIN' => 'Admin',
+                        'ROLE_USER' => 'User'
+                    ),
+                    'expanded' => false,
+                    'multiple' => true,
+                    'required' => false
+                ))
             ->end()
         ;
     }

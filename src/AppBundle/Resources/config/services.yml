@@ -36,3 +36,21 @@ services:
             - ~
             - AppBundle\Entity\User
             - ~
+
+    sonata.admin.article_category:
+        class: AppBundle\Admin\ArticleCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Articles", label: "Categories" }
+        arguments:
+            - ~
+            - AppBundle\Entity\ArticleCategory
+            - ~
+
+    sonata.admin.article:
+        class: AppBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Articles", label: "Articles" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Article
+            - ~
