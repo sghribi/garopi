@@ -62,6 +62,14 @@ class User extends BaseUser
     }
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%s %s', $this->firstName, $this->lastName);
+    }
+
+    /**
      * Get id
      *
      * @return integer 
