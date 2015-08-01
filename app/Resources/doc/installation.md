@@ -114,6 +114,34 @@ CREATE USER garopi ENCRYPTED PASSWORD 'garopi';
 GRANT ALL ON DATABASE garopi TO garopi;
 ```
 
+### Certificats CACert et cURL
+
+Il faut s'assurer d'avoir les certificats CACert sur sa machine et que cURL utilisé par des bundles de MyECP soit bien configuré pour les utiliser.
+
+Installer ces certificats avec :
+
+``` bash
+sudo aptitude install ca-certificates
+```
+
+Ensuite, éditez le fichier `/etc/ca-certificates.conf` et y rajouter les lignes suivantes :
+
+``` bash
+# En root
+cacert.org/root.crt
+cacert.org/class3.crt
+```
+
+Puis, ajoutez les certificats et les réinstaller :
+
+``` bash
+cd /usr/share/ca-certificates/
+sudo mkdir cacert.org && cd cacert.org
+sudo wget "http://www.cacert.org/certs/root.crt"
+sudo wget "http://www.cacert.org/certs/class3.crt"
+sudo update-ca-certificates
+```
+
 Installation du projet
 ----------------------
 
