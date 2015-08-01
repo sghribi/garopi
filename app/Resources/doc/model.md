@@ -8,6 +8,8 @@ Pour voir un diagramme UML des entités du projet, aller sur http://yuml.me/ et 
 
 ``` yuml
 [User]
+
+[ArticleCategory]*<->1[Article]
 ```
 
 Détail des entités
