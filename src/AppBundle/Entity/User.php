@@ -45,6 +45,15 @@ class User extends BaseUser
     protected $lastName;
 
     /**
+     * @var string
+     *
+     * String corresponding to the photo of the user encoded in base64
+     *
+     * @ORM\Column(name="photo", type="text", nullable=true)
+     */
+    protected $photo;
+
+    /**
      * {@inheritdoc}
      */
     public function __construct()
@@ -108,5 +117,29 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     *
+     * @return User
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

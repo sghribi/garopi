@@ -9,7 +9,12 @@
     <h2>Hello world!</h2>
   </div>
 
-  Bonjoure {{ app.user.firstName }} {{ app.user.lastName }}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p>Bonjoure {{ app.user.firstName }} {{ app.user.lastName }} (test authentification CAS + LDAP)</p>
+      <img alt="{{ app.user }}"  src="data:image/jpg;base64,{{ app.user.photo }}" class="img-thumbnail" />
+    </div>
+  </div>
 </div>
 
 {% endblock %}
