@@ -14,12 +14,57 @@
     {% endfor %}
   </div>
 
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <p>Bonjoure {{ app.user.firstName }} {{ app.user.lastName }} (test authentification CAS + LDAP)</p>
-      <img alt="{{ app.user }}"  src="data:image/jpg;base64,{{ app.user.photo }}" class="img-thumbnail" />
+  <div class="homepage">
+
+    <div class="main">
+      <div class="content">
+
+        <div class="block">
+          <div class="row">
+            <div class="col-sm-6 alaune-main">
+              {% set firstArticle = last4Articles|first %}
+              <h2>À la une</h2>
+              <hr/>
+              <a href="#">
+                {% if firstArticle.medias|length %}
+                  <img src="{% path (firstArticle.medias|first).media, 'small' %}" class="img-responsive" alt="Responsive image">
+                {% endif %}
+                <h3>{{ firstArticle.title }}</h3>
+              </a>
+              <p>{{ firstArticle.content|striptags|raw|slice(0, 70) }}…</p>
+              <p class="interactions">
+                <a href="#" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>5</a>
+                <a href="#" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>143</a>
+                <a href="#" class="likes"><i class="fa fa-fw fa-heart"></i>7</a>
+              </p>
+            </div>
+            <div class="col-sm-6">
+              Trololo
+            </div>
+          </div>
+
+        </div>
+
+        <div class="block">
+          Trololo
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="aside">
+      <div class="module-wrapper">
+        <div class="module">
+          Module 1
+        </div>
+        <div class="module">
+          Module 2
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
 
 {% endblock %}

@@ -1,0 +1,63 @@
+.homepage {
+  .make-row();
+  margin-left: 0;
+  margin-right: 0;
+
+  // Module disposition
+  .module-wrapper {
+    .hidden-xs();
+    .make-xs-column(4);
+    padding-right: 0;
+
+    .module {
+      .border-with-shadow();
+      padding: 10px;
+    }
+
+    .module:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+
+  .main {
+    .content {
+      .block {
+        .border-with-shadow();
+        padding: 10px;
+      }
+
+      .block:not(:first-child) {
+        margin-top: 15px;
+      }
+
+      .alaune-main {
+        img {
+          margin: auto;
+        }
+      }
+
+      .interactions {
+        text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        .make-row();
+        .comments, .views, .likes {
+          .make-xs-column(4);
+        }
+      }
+    }
+
+    @media only screen and (min-width: @screen-xs-min) {
+      .content {
+        .make-xs-column(8, 0);
+      }
+    }
+
+    @media only screen and (max-width: @screen-sm-min) {
+      .content {
+        .make-xs-column(12);
+      }
+    }
+  }
+}
+

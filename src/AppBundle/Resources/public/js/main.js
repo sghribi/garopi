@@ -32,12 +32,12 @@ $(document).ready(function() {
 
   // Enable homepage carousel
   $('#homepage-carousel').owlCarousel({
-    autoHeight:true,
+    autoHeight: false,
     loop: true,
     items: 1,
     margin: 10,
     lazyLoad: true,
-    autoplay:true,
+    autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true
   });
