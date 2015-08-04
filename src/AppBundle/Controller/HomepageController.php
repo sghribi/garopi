@@ -18,7 +18,12 @@ class HomepageController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        //@TODO
+        $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->findAll();
+
+        return array(
+            'articlesWithCover' => $articlesWithCover,
+        );
     }
 
     /**
@@ -38,5 +43,17 @@ class HomepageController extends Controller
         $this->get('request')->getSession()->invalidate();
 
         return $this->redirect('https://cas.my.ecp.fr/logout?service=' . $this->generateUrl('homepage', array(), true));
+    }
+
+    /**
+     * @Template("AppBundle::menu.html.twig")
+     */
+    public function menuAction()
+    {
+        $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
+
+        return array(
+            'categories' => $categories,
+        );
     }
 }

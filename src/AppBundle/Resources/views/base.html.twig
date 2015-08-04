@@ -15,6 +15,8 @@
     {% stylesheets output="css/main.css"
       '@AppBundle/Resources/public/less/main.less'
       '../vendor/rstacruz/nprogress/nprogress.css'
+      '../vendor/smashingboxes/OwlCarousel2/dist/assets/owl.carousel.css'
+      '../vendor/smashingboxes/OwlCarousel2/dist/assets/owl.theme.default.css'
     %}
     <link href="{{ asset_url }}" rel="stylesheet" media="screen">
     {% endstylesheets %}
@@ -26,6 +28,7 @@
       '../vendor/ftlabs/fastclick/fastclick.js'
       '../vendor/rstacruz/nprogress/nprogress.js'
       'bundles/fosjsrouting/js/router.js'
+      '../vendor/smashingboxes/OwlCarousel2/dist/owl.carousel.js'
       '@AppBundle/Resources/public/js/main.js'
     %}
     <script src="{{ asset_url }}"></script>

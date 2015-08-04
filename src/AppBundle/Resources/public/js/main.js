@@ -29,6 +29,18 @@ $(document).ready(function() {
       $faIcon.removeClass().addClass('fa fa-spinner fa-fw fa-spin');
     });
   });
+
+  // Enable homepage carousel
+  $('#homepage-carousel').owlCarousel({
+    autoHeight:true,
+    loop: true,
+    items: 1,
+    margin: 10,
+    lazyLoad: true,
+    autoplay:true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true
+  });
 });
 
 // Disable 300ms delay on mobile devices

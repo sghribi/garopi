@@ -40,7 +40,8 @@
         "hautelook/alice-bundle": "^0.2.0",
         "lunetics/locale-bundle": "~2.4",
         "besimple/sso-auth-bundle": "1.0.*@dev",
-        "egeloen/ckeditor-bundle": "~2.0"
+        "egeloen/ckeditor-bundle": "~2.0",
+        "smashingboxes/OwlCarousel2": "2.0.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -125,6 +126,17 @@
                 "version": "4.9.0",
                 "dist": {
                     "url": "https://github.com/lipis/bootstrap-social/archive/4.9.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "smashingboxes/OwlCarousel2",
+                "version": "2.0.0",
+                "dist": {
+                    "url": "https://github.com/smashingboxes/OwlCarousel2/archive/master.zip",
                     "type": "zip"
                 }
             }

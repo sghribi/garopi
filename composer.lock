@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7bef10a0db88d012d06f9f4a609204a7",
+    "hash": "ba692ca2fa78f3fa8af849e9cc5f7664",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -866,7 +866,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/ac96a0e2a09ebf5655b087ff9bc23809a7b4899f",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/1022552099a055f05312289c89465c3a84f37dce",
                 "reference": "861d3564c03b3867845ffd87d9b19f49dc673c69",
                 "shasum": ""
             },
@@ -1045,7 +1045,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/ce9f840f76e725a4b2701ca10def178142878c6b",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/b62316b4cf489495b4a84059bafc9e43a6a4d2bc",
                 "reference": "78954cce4962a4655ff47c0751eb78021fbaf2cc",
                 "shasum": ""
             },
@@ -1395,7 +1395,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/5d7017d35f73cdb74e069f9d607cd0448d305078",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
                 "reference": "3efbc08a97f218d0a4524dee926fc4381e3d0947",
                 "shasum": ""
             },
@@ -2523,6 +2523,17 @@
             "time": "2015-05-28 14:22:40"
         },
         {
+            "name": "smashingboxes/OwlCarousel2",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/smashingboxes/OwlCarousel2/archive/master.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library"
+        },
+        {
             "name": "sonata-project/admin-bundle",
             "version": "dev-master",
             "source": {
@@ -2532,7 +2543,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/b5d0b9cb8b6536c95bdf898a147220c5c2bb5544",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/65a726a95720af7500af72f154c038875b60bbea",
                 "reference": "12fc8df1b8a2c41b262c41469895eeec3a3dafda",
                 "shasum": ""
             },
