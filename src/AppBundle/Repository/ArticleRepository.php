@@ -33,7 +33,7 @@ class ArticleRepository extends EntityRepository
      *
      * @return Article[]
      */
-    public function getLastArticles($nb = 4)
+    public function getLastArticles($nb = 3)
     {
         $qb = $this->createQueryBuilder('a')
             ->leftJoin('a.medias', 'am')

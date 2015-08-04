@@ -22,7 +22,7 @@
         <div class="block">
           <div class="row">
             <div class="col-sm-6 alaune-main">
-              {% set firstArticle = last4Articles|first %}
+              {% set firstArticle = last3Articles|first %}
               <h2>À la une</h2>
               <hr/>
               <a href="#">
@@ -35,11 +35,24 @@
               <p class="interactions">
                 <a href="#" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>5</a>
                 <a href="#" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>143</a>
-                <a href="#" class="likes"><i class="fa fa-fw fa-heart"></i>7</a>
+                <a href="{{ path('app_category_show', {slug: firstArticle.category.slug}) }}" class="category"><i class="fa fa-fw fa-plus-square"></i>{{ firstArticle.category.name }}</a>
               </p>
             </div>
-            <div class="col-sm-6">
-              Trololo
+            <div class="col-sm-6 alamune-aside">
+              {% for article in last3Articles[1:] %}
+                <div class="article">
+                  <a href="#">
+                    <h3>{{ article.title }}</h3>
+                  </a>
+                  <p>{{ article.content|striptags|raw|slice(0, 70) }}…</p>
+                  <p class="interactions">
+                    <a href="#" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>5</a>
+                    <a href="#" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>143</a>
+                    <a href="{{ path('app_category_show', {slug: firstArticle.category.slug}) }}" class="category"><i class="fa fa-fw fa-plus-square"></i>{{ firstArticle.category.name }}</a>
+                  </p>
+                </div>
+                {% if not loop.last %}<hr/>{% endif %}
+              {% endfor %}
             </div>
           </div>
 

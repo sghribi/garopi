@@ -20,12 +20,12 @@ class HomepageController extends Controller
     {
         $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesWithCover();
         $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
-        $last4Articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticles(4);
+        $last3Articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticles(3);
 
         return array(
             'articlesWithCover' => $articlesWithCover,
             'categories' => $categories,
-            'last4Articles' => $last4Articles,
+            'last3Articles' => $last3Articles,
         );
     }
 
