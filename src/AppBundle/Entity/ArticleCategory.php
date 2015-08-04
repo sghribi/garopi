@@ -43,6 +43,13 @@ class ArticleCategory
     protected $order;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="fontawesome_class", type="string", length=255, nullable=true)
+     */
+    protected $fontawesomeClass;
+
+    /**
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=128, unique=true)
      */
@@ -194,5 +201,29 @@ class ArticleCategory
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set fontawesomeClass
+     *
+     * @param string $fontawesomeClass
+     *
+     * @return ArticleCategory
+     */
+    public function setFontawesomeClass($fontawesomeClass)
+    {
+        $this->fontawesomeClass = $fontawesomeClass;
+
+        return $this;
+    }
+
+    /**
+     * Get fontawesomeClass
+     *
+     * @return string 
+     */
+    public function getFontawesomeClass()
+    {
+        return $this->fontawesomeClass;
     }
 }

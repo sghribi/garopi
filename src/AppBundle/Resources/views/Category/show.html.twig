@@ -4,6 +4,11 @@
 
 <div class="container">
 
+  <ol class="breadcrumb">
+    <li><a href="{{ path('homepage') }}"><i class="fa fa-fw fa-home"></i> Accueil</a></li>
+    <li class="active">{% if category.fontawesomeClass %}<i class="fa fa-{{ category.fontawesomeClass }}"></i> {% endif %}{{ category.name }}</li>
+  </ol>
+
   <div class="well">
     {# total items count #}
     <div class="jumbotron text-center">
@@ -20,7 +25,7 @@
     {% for article in articles %}
       <div class="media">
         <div class="media-left media-middle">
-            <a href="#">
+            <a href="{{ path('app_article_show', {slug: article.slug}) }}">
               {% if article.medias|length %}
                 <img class="media-object" src="{% path (article.medias|first).media, 'small' %}" alt="{{ article.title }}">
               {% else %}
@@ -29,7 +34,9 @@
             </a>
         </div>
         <div class="media-body">
-          <h3 class="media-heading">{{ article.title }}<br/><small><i>Par <strong>{{ article.authorName }}</strong>, le {{ article.createdAt|date }}</i></small></h3>
+          <a href="{{ path('app_article_show', {slug: article.slug}) }}">
+            <h3 class="media-heading">{{ article.title }}<br/><small><i>Par <strong>{{ article.authorName }}</strong>, le {{ article.createdAt|date }}</i></small></h3>
+          </a>
           {{ article.content|striptags|raw|slice(0, 150) }}…
         </div>
       </div>

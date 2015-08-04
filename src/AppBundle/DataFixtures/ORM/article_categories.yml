@@ -3,15 +3,19 @@ AppBundle\Entity\ArticleCategory:
         name: "Centrale"
         slug: "centrale"
         order: 1
+        fontawesomeClass: 'graduation-cap'
     articlecategory_associatif:
         name: "Associatif"
         slug: "associatif"
         order: 2
+        fontawesomeClass: 'users'
     articlecategory_science:
         name: "Science"
         slug: "science"
         order: 3
+        fontawesomeClass: 'flask'
     articlecategory_divers:
         name: "Divers"
         slug: "divers"
         order: 4
+        fontawesomeClass: 'random'

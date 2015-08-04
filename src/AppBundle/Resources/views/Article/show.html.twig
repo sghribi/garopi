@@ -1,0 +1,18 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="{{ path('homepage') }}"><i class="fa fa-fw fa-home"></i> Accueil</a></li>
+      <li><a href="{{ path('app_category_show', {slug: article.category.slug}) }}">{% if article.category.fontawesomeClass %}<i class="fa fa-{{ article.category.fontawesomeClass }}"></i> {% endif %}{{ article.category.name }}</a></li>
+      <li class="active">{{ article.title }}</a></li>
+    </ol>
+
+    <div class="well">
+      {{ article }}
+    </div>
+  </div>
+
+{% endblock %}
