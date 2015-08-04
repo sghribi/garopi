@@ -11,7 +11,7 @@
         <img class="owl-lazy" data-src="http://lorempixel.com/1170/300/abstract/{{ loop.index }}" alt="{{ article.title }}" />
         <div class="carousel-caption">
           <h4>{{ article.title }}</h4>
-          <p>{{ article.content|striptags|slice(0, 40) }}</p>
+          <p>{{ article.content|striptags|slice(0, 40) }}…</p>
         </div>
       </div>
     {% endfor %}
