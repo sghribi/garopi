@@ -33,7 +33,7 @@ set :use_sudo,            false
 
 # shared files
 set :shared_files,        ["app/config/parameters.yml"]
-set :shared_children,     ["app/logs", "vendor"]
+set :shared_children,     ["app/logs", "vendor", "web/uploads"]
 
 # composer settings
 set :use_composer,      true

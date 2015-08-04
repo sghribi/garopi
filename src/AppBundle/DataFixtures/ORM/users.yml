@@ -1,0 +1,63 @@
+AppBundle\Entity\User:
+    2012ghribis:
+        firstName: Samy
+        lastName: GHRIBI
+        username: 2012ghribis
+        email: samy.ghribi@student.ecp.fr
+        password: <password()>
+        roles: ['ROLE_USER', 'ROLE_ADMIN']
+        enabled: true
+
+    2012leducqa:
+        firstName: Alice
+        lastName: Leducq
+        username: 2012leducqa
+        email: alice.leducq@student.ecp.fr
+        password: <password()>
+        roles: ['ROLE_USER', 'ROLE_ADMIN']
+        enabled: true
+
+    2012benoita2:
+        firstName: Antoine
+        lastName: Benoit
+        username: 2012benoita2
+        email: antoine.benoit@student.ecp.fr
+        password: <password()>
+        roles: ['ROLE_USER', 'ROLE_ADMIN']
+        enabled: true
+
+    2012vidona:
+        firstName: Antoine
+        lastName: Vidon
+        username: 2012vidona
+        email: antoine.vidon@student.ecp.fr
+        password: <password()>
+        roles: ['ROLE_USER', 'ROLE_ADMIN']
+        enabled: true
+
+    2012bujonc:
+        firstName: Carole
+        lastName: Bujon
+        username: 2012bujonc
+        email: carole.bujon@student.ecp.fr
+        password: <password()>
+        roles: ['ROLE_USER', 'ROLE_ADMIN']
+        enabled: true
+
+    2012piardm:
+        firstName: Maxime
+        lastName: Piard
+        username: 2012piardm
+        email: maxime.piard@student.ecp.fr
+        password: <password()>
+        roles: ['ROLE_USER', 'ROLE_ADMIN']
+        enabled: true
+
+    2012kaspit:
+        firstName: Thibault
+        lastName: Kaspi
+        username: 2012kaspit
+        email: thibault.kaspi@student.ecp.fr
+        password: <password()>
+        roles: ['ROLE_USER', 'ROLE_ADMIN']
+        enabled: true

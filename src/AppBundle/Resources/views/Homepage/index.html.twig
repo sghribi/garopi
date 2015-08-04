@@ -8,10 +8,10 @@
   <div id="homepage-carousel" class="owl-carousel">
     {% for article in articlesWithCover %}
       <div class="item {% if loop.first %}active{% endif %}">
-        <img class="owl-lazy" data-src="http://lorempixel.com/1170/300/abstract/{{ loop.index }}" alt="{{ article.title }}" />
+        <img class="owl-lazy" data-src="{% path (article.medias|first).media, 'cover' %}" alt="{{ article.title }}" />
         <div class="carousel-caption">
           <h4>{{ article.title }}</h4>
-          <p>{{ article.content|striptags|slice(0, 40) }}…</p>
+          <p>{{ article.content|striptags|raw|slice(0, 30) }}…</p>
         </div>
       </div>
     {% endfor %}

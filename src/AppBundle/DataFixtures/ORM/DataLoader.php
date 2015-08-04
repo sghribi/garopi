@@ -14,8 +14,17 @@ class DataLoader extends DataFixtureLoader
      */
     protected function getFixtures()
     {
-        return  array(
+        $fixtures = array(
             __DIR__ . '/article_categories.yml',
+            __DIR__ . '/users.yml',
         );
+
+
+        if ($this->container->get('kernel')->getEnvironment() != 'prod') {
+            $fixtures[] = __DIR__ . '/articles.yml';
+
+        }
+
+        return  $fixtures;
     }
 }

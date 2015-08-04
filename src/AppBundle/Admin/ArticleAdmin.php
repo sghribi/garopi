@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use AppBundle\Entity\ArticleMedia;
 
 /**
  * Class ArticleAdmin
@@ -76,6 +77,15 @@ class ArticleAdmin extends Admin
                     'class' => 'ckeditor',
                 ),
             ))
+            ->add('medias', 'sonata_type_collection', array(
+                'required' => false,
+                'label' => 'Medias (le premier correspond à la couverture)'
+            ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable'  => 'position',
+            ))
+        ;
         ;
     }
     /**
@@ -94,5 +104,21 @@ class ArticleAdmin extends Admin
             ->add('updatedAt')
             ->add('content')
         ;
+    }
+
+    public function prePersist($object)
+    {
+        /** @var ArticleMedia $media */
+        foreach ($object->getMedias() as $media) {
+            $media->setArticle($object);
+        }
+    }
+
+    public function preUpdate($object)
+    {
+        /** @var ArticleMedia $media */
+        foreach ($object->getMedias() as $media) {
+            $media->setArticle($object);
+        }
     }
 }

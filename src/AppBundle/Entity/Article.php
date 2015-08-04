@@ -12,7 +12,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Article
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleRepository")
  * @ORM\Table(name="article")
  */
 class Article
@@ -72,6 +72,14 @@ class Article
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      */
     protected $category;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArticleMedia", cascade={"persist"}, mappedBy="article")
+     * @ORM\OrderBy({"position" = "ASC"})
+     */
+    protected $medias;
 
     /**
      * @return string
@@ -231,5 +239,47 @@ class Article
     public function getSlug()
     {
         return $this->slug;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add medias
+     *
+     * @param ArticleMedia $media
+     *
+     * @return Article
+     */
+    public function addMedia(ArticleMedia $media)
+    {
+        $this->medias[] = $media;
+        $media->setArticle($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove medias
+     *
+     * @param ArticleMedia $media
+     */
+    public function removeMedia(ArticleMedia $media)
+    {
+        $this->medias->removeElement($media);
+    }
+
+    /**
+     * Get medias
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMedias()
+    {
+        return $this->medias;
     }
 }

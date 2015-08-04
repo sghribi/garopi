@@ -1,17 +1,17 @@
 AppBundle\Entity\ArticleCategory:
-    centrale:
+    articlecategory_centrale:
         name: "Centrale"
         slug: "centrale"
         order: 1
-    associatif:
+    articlecategory_associatif:
         name: "Associatif"
         slug: "associatif"
         order: 2
-    science:
+    articlecategory_science:
         name: "Science"
         slug: "science"
         order: 3
-    divers:
+    articlecategory_divers:
         name: "Divers"
         slug: "divers"
         order: 4

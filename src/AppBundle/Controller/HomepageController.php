@@ -19,7 +19,7 @@ class HomepageController extends Controller
     public function indexAction()
     {
         //@TODO
-        $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->findAll();
+        $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesWithCover();
 
         return array(
             'articlesWithCover' => $articlesWithCover,

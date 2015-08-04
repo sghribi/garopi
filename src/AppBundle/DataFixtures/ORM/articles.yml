@@ -1,0 +1,6 @@
+AppBundle\Entity\Article:
+    article_{1..20}:
+        title: <sentence()>
+        content: <realText()>
+        category: @articlecategory_*
+        authorName: <firstName()>

@@ -37,6 +37,10 @@
         "sonata-project/core-bundle": "dev-master",
         "sonata-project/block-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/media-bundle": "dev-master",
+        "sonata-project/classification-bundle": "dev-master",
+        "sonata-project/datagrid-bundle": "dev-master",
+        "sonata-project/intl-bundle": "dev-master",
         "hautelook/alice-bundle": "^0.2.0",
         "lunetics/locale-bundle": "~2.4",
         "besimple/sso-auth-bundle": "1.0.*@dev",
@@ -126,17 +130,6 @@
                 "version": "4.9.0",
                 "dist": {
                     "url": "https://github.com/lipis/bootstrap-social/archive/4.9.0.zip",
-                    "type": "zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "smashingboxes/OwlCarousel2",
-                "version": "2.0.0",
-                "dist": {
-                    "url": "https://github.com/smashingboxes/OwlCarousel2/archive/master.zip",
                     "type": "zip"
                 }
             }
