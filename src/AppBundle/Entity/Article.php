@@ -245,7 +245,7 @@ class Article
      */
     public function __construct()
     {
-        $this->medias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->medias = new ArrayCollection();
     }
 
     /**

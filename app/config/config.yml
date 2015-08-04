@@ -207,7 +207,7 @@ sonata_media:
                 - sonata.media.provider.file
 
             formats:
-                small: { width: 100 , quality: 70}
+                small: { width: 200 , quality: 70}
                 cover: { height: 300, quality: 90}
                 big:   { width: 500 , quality: 70}
 
@@ -234,6 +234,18 @@ be_simple_sso_auth:
             login_url:  https://cas.my.ecp.fr/login
             logout_url: https://cas.my.ecp.fr/logout
             validation_url: https://cas.my.ecp.fr/serviceValidate
+
+# Paginator
+knp_paginator:
+    page_range: 10                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig   # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
 
 parameters:
     ldap:

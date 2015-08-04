@@ -1,0 +1,45 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+
+  <div class="well">
+    {# total items count #}
+    <div class="jumbotron text-center">
+      {% if articles.getTotalItemCount %}
+        <h2>{{ category.name }} : {{ articles.getTotalItemCount }} article{% if articles.getTotalItemCount > 1 %}s{% endif %}</h2>
+      {% else %}
+        <h1>:(</h1>
+        <br/>
+        <h2>Aucun article pour le moment</h2>
+        <p><a href="{{ path('homepage') }}"><i class="fa fa-fw fa-chevron-left"></i> Retour à l'accueil</a></p>
+      {% endif %}
+    </div>
+
+    {% for article in articles %}
+      <div class="media">
+        <div class="media-left media-middle">
+            <a href="#">
+              {% if article.medias|length %}
+                <img class="media-object" src="{% path (article.medias|first).media, 'small' %}" alt="{{ article.title }}">
+              {% else %}
+                <img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=15&txt=\_G%20%3C%20%E2%80%A2%20Le%20Garopi&w=200&h=100" />
+              {% endif %}
+            </a>
+        </div>
+        <div class="media-body">
+          <h3 class="media-heading">{{ article.title }}<br/><small><i>Par <strong>{{ article.authorName }}</strong>, le {{ article.createdAt|date }}</i></small></h3>
+          {{ article.content|striptags|raw|slice(0, 150) }}…
+        </div>
+      </div>
+    {% endfor %}
+
+    {# display navigation #}
+    <div class="navigation">
+      {{ knp_pagination_render(articles) }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

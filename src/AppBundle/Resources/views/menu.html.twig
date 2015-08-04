@@ -14,7 +14,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           {% for category in categories %}
-            <li class=""><a href="#">{{ category.name }}</a></li>
+            <li class=""><a href="{{ path('app_category_show', {slug: category.slug}) }}">{{ category.name }}</a></li>
           {% endfor %}
         </ul>
 

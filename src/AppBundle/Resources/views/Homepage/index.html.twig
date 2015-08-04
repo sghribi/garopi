@@ -1,10 +1,7 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-
-{{ render(controller('AppBundle:Homepage:menu')) }}
-
-<div class="container">
+  <div class="container">
   <div id="homepage-carousel" class="owl-carousel">
     {% for article in articlesWithCover %}
       <div class="item {% if loop.first %}active{% endif %}">

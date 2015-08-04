@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\ArticleCategory;
 use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Article;
 
@@ -20,9 +21,21 @@ class ArticleRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->leftJoin('a.medias', 'am')
             ->where('am.media IS NOT NULL')
+            ->andWhere('a.published = true')
             ->groupBy('a.id')
             ->setMaxResults($nb);
 
         return $qb->getQuery()->getResult();
+    }
+
+    public function getQbArticlesInCategory(ArticleCategory $category)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.medias', 'am')
+            ->where('a.category = :category')
+            ->andWhere('a.published = true')
+            ->setParameter('category', $category);
+
+        return $qb;
     }
 }

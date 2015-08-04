@@ -45,7 +45,8 @@
         "lunetics/locale-bundle": "~2.4",
         "besimple/sso-auth-bundle": "1.0.*@dev",
         "egeloen/ckeditor-bundle": "~2.0",
-        "smashingboxes/OwlCarousel2": "2.0.0"
+        "smashingboxes/OwlCarousel2": "2.0.0",
+        "knplabs/knp-paginator-bundle": "^2.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
