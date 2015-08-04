@@ -17,9 +17,6 @@ class UserAdmin extends Admin
     protected $baseRouteName = 'sonata_user';
     protected $baseRoutePattern = 'users';
 
-    /** @var UserManagerInterface */
-    protected $userManager;
-
     /**
      * @param DatagridMapper $datagridMapper
      */

@@ -17,9 +17,6 @@ class ArticleCategoryAdmin extends Admin
     protected $baseRouteName = 'sonata_article_category';
     protected $baseRoutePattern = 'article_categories';
 
-    /** @var UserManagerInterface */
-    protected $userManager;
-
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -29,6 +26,7 @@ class ArticleCategoryAdmin extends Admin
             ->add('id')
             ->add('name')
             ->add('order')
+            ->add('fontawesomeClass')
         ;
     }
     /**
@@ -42,6 +40,7 @@ class ArticleCategoryAdmin extends Admin
             ->add('slug')
             ->add('order', null, array('editable' => true))
             ->add('nbArticles')
+            ->add('fontawesomeClass')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -61,6 +60,7 @@ class ArticleCategoryAdmin extends Admin
             ->add('id')
             ->add('name')
             ->add('order')
+            ->add('fontawesomeClass')
         ;
     }
     /**
@@ -74,6 +74,7 @@ class ArticleCategoryAdmin extends Admin
             ->add('slug')
             ->add('order')
             ->add('articles')
+            ->add('fontawesomeClass')
         ;
     }
 }

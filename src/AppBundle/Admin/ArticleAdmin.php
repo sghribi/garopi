@@ -18,9 +18,6 @@ class ArticleAdmin extends Admin
     protected $baseRouteName = 'sonata_article';
     protected $baseRoutePattern = 'articles';
 
-    /** @var UserManagerInterface */
-    protected $userManager;
-
     /**
      * @param DatagridMapper $datagridMapper
      */
