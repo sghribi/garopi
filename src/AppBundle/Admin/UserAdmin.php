@@ -46,6 +46,7 @@ class UserAdmin extends Admin
             ->add('firstName')
             ->add('lastName')
             ->add('lastLogin')
+            ->add('wantsToReceiveMails')
             ->add('roles')
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -68,6 +69,9 @@ class UserAdmin extends Admin
                 ->add('lastName')
                 ->add('username')
                 ->add('email')
+            ->end()
+            ->with('Preferences')
+                ->add('wantsToReceiveMails')
             ->end()
             ->with('Management')
                 ->add('locked', null, array('required' => false))
@@ -97,6 +101,7 @@ class UserAdmin extends Admin
             ->add('email')
             ->add('firstName')
             ->add('lastName')
+            ->add('wantsToReceiveMails')
         ;
     }
 }

@@ -55,6 +55,13 @@ class User extends BaseUser implements UserInterface
     protected $photo;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="wants_to_receive_mails", type="boolean", options={"default" = false})
+     */
+    protected $wantsToReceiveMails = false;
+
+    /**
      * {@inheritdoc}
      */
     public function __construct()
@@ -150,5 +157,29 @@ class User extends BaseUser implements UserInterface
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    /**
+     * Set wantsToReceiveMails
+     *
+     * @param boolean $wantsToReceiveMails
+     *
+     * @return User
+     */
+    public function setWantsToReceiveMails($wantsToReceiveMails)
+    {
+        $this->wantsToReceiveMails = $wantsToReceiveMails;
+
+        return $this;
+    }
+
+    /**
+     * Get wantsToReceiveMails
+     *
+     * @return boolean 
+     */
+    public function getWantsToReceiveMails()
+    {
+        return $this->wantsToReceiveMails;
     }
 }

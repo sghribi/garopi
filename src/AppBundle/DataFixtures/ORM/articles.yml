@@ -4,3 +4,4 @@ AppBundle\Entity\Article:
         content: <realText()>
         category: @articlecategory_*
         authorName: <firstName()>
+        published: true

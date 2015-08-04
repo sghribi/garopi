@@ -40,6 +40,7 @@
   </head>
 
   <body class="{{ body_class|default('') }}">
+  {% include 'AppBundle::socials.html.twig' %}
   {{ render(controller('AppBundle:Homepage:menu')) }}
   {% block body %}{% endblock %}
   {% block javascripts %}{% endblock %}

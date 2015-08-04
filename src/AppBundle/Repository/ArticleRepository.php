@@ -59,4 +59,16 @@ class ArticleRepository extends EntityRepository
 
         return $qb;
     }
+
+    public function getLastArticlesInCategory(ArticleCategory $category, $nb)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.medias', 'am')
+            ->where('a.category = :category')
+            ->andWhere('a.published = true')
+            ->setParameter('category', $category)
+            ->setMaxResults($nb);
+
+        return $qb->getQuery()->getResult();
+    }
 }

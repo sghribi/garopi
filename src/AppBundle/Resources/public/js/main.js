@@ -41,6 +41,42 @@ $(document).ready(function() {
     autoplayTimeout: 3000,
     autoplayHoverPause: true
   });
+
+  $('.notify-by-mail').each(function() {
+    var $input = $(this).find('input');
+    var $success = $(this).find('.success');
+    var $failure = $(this).find('.failure');
+
+    $input.on('change', function(e) {
+      e.preventDefault();
+
+      $.ajax({
+        url: Routing.generate('app_homepage_notifybymail'),
+        type: 'PUT',
+        beforeSend: function() {
+          $input.attr('disabled','disabled');
+          $success.hide();
+          $failure.hide();
+        },
+        success: function() {
+          $success.show();
+          $failure.hide();
+        },
+        error: function() {
+          $success.hide();
+          $failure.show();
+          if (typeof $input.attr('checked') == 'undefined') {
+            $input.removeAttr('checked');
+          } else {
+            $input.attr('checked', 'checked');
+          }
+        },
+        complete: function() {
+          $input.removeAttr('disabled');
+        }
+      });
+    })
+  });
 });
 
 // Disable 300ms delay on mobile devices

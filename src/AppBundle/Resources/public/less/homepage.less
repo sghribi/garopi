@@ -12,10 +12,26 @@
     .module {
       .border-with-shadow();
       padding: 10px;
+
+      h3 {
+        margin-top: 0;
+        text-align: center;
+      }
+      hr {
+        margin: 10px;
+      }
     }
 
     .module:not(:first-child) {
       margin-top: 15px;
+    }
+
+    .horoscope {
+      .horoscope-select {
+        > li > a {
+          padding: 0;
+        }
+      }
     }
   }
 
@@ -46,6 +62,12 @@
         .make-row();
         .comments, .views, .category {
           .make-xs-column(4);
+        }
+      }
+
+      .block-category {
+        h2.category-title {
+          margin-left: 30px;
         }
       }
     }

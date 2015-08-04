@@ -2,9 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -19,13 +21,19 @@ class HomepageController extends Controller
     public function indexAction()
     {
         $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesWithCover();
-        $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
         $last3Articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticles(3);
+        $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
+        //@TODO: can be optimised...
+        $articlesByCategory = array();
+        foreach ($categories as $category) {
+            $articlesByCategory[$category->getSlug()] = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesInCategory($category, 2);
+        }
 
         return array(
             'articlesWithCover' => $articlesWithCover,
             'categories' => $categories,
             'last3Articles' => $last3Articles,
+            'articlesByCategory' => $articlesByCategory,
         );
     }
 
@@ -58,5 +66,27 @@ class HomepageController extends Controller
         return array(
             'categories' => $categories,
         );
+    }
+
+    /**
+     * @Route("/settings/notify-by-mail", options={"expose": true})
+     */
+    public function notifyByMailAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        /** @var User $user */
+        $user = $this->getUser();
+
+        if ($user->getWantsToReceiveMails()) {
+            $user->setWantsToReceiveMails(false);
+        } else {
+            $user->setWantsToReceiveMails(true);
+        }
+
+        $em->persist($user);
+        $em->flush();
+
+        return new JsonResponse(array('OK'));
     }
 }
