@@ -87,7 +87,7 @@ body {
 strong { font-weight: 500; }
 
 a, a:hover, a:focus {
-  color: #de615e;
+  color: firebrick;
   text-decoration: none;
   -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
 }
@@ -263,7 +263,11 @@ h3 {
 
 
 .border-with-shadow {
-  background-color: white;
-  box-shadow: #999 0 0 2px;
+  background-color: ghostwhite;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
   margin-top: 10px;
+}
+
+.navbar-nav > li:hover {
+  background-color: lighten(@navbar-default-bg, 4%);
 }
