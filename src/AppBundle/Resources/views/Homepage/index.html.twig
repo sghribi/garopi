@@ -8,7 +8,10 @@
         <img class="owl-lazy" data-src="{% path (article.medias|first).media, 'cover' %}" alt="{{ article.title }}" />
         <div class="carousel-caption">
           <h4>{{ article.title }}</h4>
-          <p>{{ article.content|striptags|raw|slice(0, 30) }}…</p>
+          <p>
+            {{ article.content|striptags|raw|slice(0, 30) }}…&nbsp;
+            <a href="{{ path('app_article_show', {slug: article.slug}) }}">Lire l'article</a>
+          </p>
         </div>
       </div>
     {% endfor %}
