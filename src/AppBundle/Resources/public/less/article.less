@@ -1,0 +1,44 @@
+.article {
+  .jumbotron {
+    padding: 30px;
+  }
+
+  .owl-carousel {
+    margin-bottom: 20px;
+  }
+
+  .list-inline {
+    > li:not(:last-child) {
+      border-right-width: 1px;
+      border-right-style: groove;
+      line-height: normal;
+      margin-right: -5px;
+    }
+  }
+
+  .content {
+    color: #000000;
+    text-align: justify;
+    font-family: DroidSansRegular, Verdana, sans-serif;
+  }
+
+  .article-wrapper {
+    .make-row();
+    margin-top: 20px;
+
+
+    .main {
+      padding-left: 50px !important;
+      padding-right: 50px !important;
+      .make-sm-column(8, 0);
+    }
+
+    .aside {
+      .make-sm-column(4, 0);
+    }
+  }
+
+  .author {
+    .pull-right();
+  }
+}

@@ -10,8 +10,49 @@
       <li class="active">{{ article.title }}</a></li>
     </ol>
 
-    <div class="well">
-      {{ article }}
+    <div class="well article">
+
+      {% if is_granted('ROLE_ADMIN') %}
+        <div class="pull-right">
+          <a href="{{ path('sonata_article_edit', {id: article.id}) }}" target="_blank"><i class="fa fa-fw fa-edit"></i> Éditer</a>
+        </div>
+      {% endif %}
+
+      <ul class="list-inline">
+        <li><i class="fa fa-fw fa-tags"></i> {{ article.category.name }}</li>
+        <li><i class="fa fa-fw fa-user"></i> {{ article.authorName }}</li>
+        <li><i class="fa fa-fw fa-clock-o"></i> {{ article.createdAt|date('d/m/Y \\à H:i') }}</li>
+        <li><i class="fa fa-fw fa-eye"></i> 143</li>
+      </ul>
+
+      <div class="article-wrapper">
+        <div class="main">
+
+          <div class="jumbotron">
+            <h2>{{ article.title }}</h2>
+            <p>Par <em>{{ article.authorName }}</em></p>
+          </div>
+
+          <div id="article-carousel" class="owl-carousel">
+            {% for media in article.medias %}
+              <div class="item {% if loop.first %}active{% endif %}">
+                <img class="owl-lazy" data-src="{% path media.media, 'cover' %}" alt="{{ article.title }}" />
+                <div class="carousel-caption">
+                  <p>{{ media.legend }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="content">
+            {{ article.content|raw }}
+          </div>
+          <em class="author">{{ article.authorName }}</em>
+        </div>
+        <div class="aside">
+
+        </div>
+      </div>
     </div>
   </div>
 

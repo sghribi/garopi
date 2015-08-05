@@ -17,6 +17,7 @@ class ArticleMediaAdmin extends Admin
                     'context' => 'default'
                 )
             ))
+            ->add('legend')
             ->add('position', 'hidden');
     }
 }

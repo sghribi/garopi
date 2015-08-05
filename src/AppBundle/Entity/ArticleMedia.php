@@ -42,6 +42,13 @@ class ArticleMedia
     protected $article;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="legend", type="text", nullable=true)
+     */
+    protected $legend;
+
+    /**
      * @var Media
      *
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
@@ -126,5 +133,29 @@ class ArticleMedia
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set legend
+     *
+     * @param string $legend
+     *
+     * @return ArticleMedia
+     */
+    public function setLegend($legend)
+    {
+        $this->legend = $legend;
+
+        return $this;
+    }
+
+    /**
+     * Get legend
+     *
+     * @return string 
+     */
+    public function getLegend()
+    {
+        return $this->legend;
     }
 }

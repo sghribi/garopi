@@ -42,6 +42,18 @@ $(document).ready(function() {
     autoplayHoverPause: true
   });
 
+  // Enable article carousel
+  $('#article-carousel').owlCarousel({
+    autoHeight: false,
+    loop: true,
+    items: 1,
+    margin: 10,
+    lazyLoad: true,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true
+  });
+
   $('.notify-by-mail').each(function() {
     var $input = $(this).find('input');
     var $success = $(this).find('.success');
