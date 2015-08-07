@@ -41,7 +41,7 @@
                 </a>
                 <p>{{ firstArticle.content|striptags|raw|slice(0, 70) }}…</p>
                 <p class="interactions">
-                  <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>5</a>
+                  <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ firstArticle.nbComments }}</a>
                   <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>143</a>
                   <a href="{{ path('app_category_show', {slug: firstArticle.category.slug}) }}" class="category"><i class="fa fa-fw fa-tags"></i>{{ firstArticle.category.name }}</a>
                 </p>
@@ -54,7 +54,7 @@
                     </a>
                     <p>{{ article.content|striptags|raw|slice(0, 70) }}…</p>
                     <p class="interactions">
-                      <a href="{{ path('app_article_show', {slug: article.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>5</a>
+                      <a href="{{ path('app_article_show', {slug: article.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ article.nbComments }}</a>
                       <a href="{{ path('app_article_show', {slug: article.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>143</a>
                       <a href="{{ path('app_category_show', {slug: article.category.slug}) }}" class="category"><i class="fa fa-fw fa-tags"></i>{{ article.category.name }}</a>
                     </p>
@@ -80,7 +80,7 @@
                 </a>
                 <p>{{ article.content|striptags|raw|slice(0, 70) }}…</p>
                 <p class="interactions">
-                  <a href="{{ path('app_article_show', {slug: article.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>5</a>
+                  <a href="{{ path('app_article_show', {slug: article.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ article.nbComments }}</a>
                   <a href="{{ path('app_article_show', {slug: article.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>143</a>
                   <a href="{{ path('app_category_show', {slug: article.category.slug}) }}" class="category"><i class="fa fa-fw fa-tags"></i>{{ article.category.name }}</a>
                 </p>

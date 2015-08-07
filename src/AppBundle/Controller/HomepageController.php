@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -70,6 +71,7 @@ class HomepageController extends Controller
 
     /**
      * @Route("/settings/notify-by-mail", options={"expose": true})
+     * @Method("POST")
      */
     public function notifyByMailAction()
     {

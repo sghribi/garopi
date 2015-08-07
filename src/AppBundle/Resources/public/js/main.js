@@ -91,6 +91,31 @@ $(document).ready(function() {
   });
 });
 
+// Remove comment
+(function ($) {
+  $.fn.extend({
+    removeComment: function () {
+      var commentId = $(this).data('comment-id');
+      var $button = $(this);
+      var $comment = $('#comment-' + commentId);
+
+      $.ajax({
+        url: Routing.generate('app_comment_remove', {id: commentId}),
+        type: 'DELETE',
+        beforeSend: function () {
+          $button.attr('disabled', 'disabled');
+        },
+        success: function () {
+          $comment.slideUp();
+        },
+        error: function () {
+          $button.removeAttr('disabled');
+        }
+      });
+    }
+  });
+})(jQuery);
+
 // Disable 300ms delay on mobile devices
 $(function() {
   FastClick.attach(document.body);

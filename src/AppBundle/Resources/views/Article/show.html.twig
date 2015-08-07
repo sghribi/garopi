@@ -10,7 +10,7 @@
       <li class="active">{{ article.title }}</a></li>
     </ol>
 
-    <div class="well article">
+    <div class="well article-detail">
 
       {% if is_granted('ROLE_ADMIN') %}
         <div class="pull-right">
@@ -69,7 +69,7 @@
         </div>
         <ul class="list-group">
           {% for comment in article.comments|reverse %}
-            <li class="list-group-item comment {% if highlight == comment %}active{% endif %}">
+            <li class="list-group-item comment {% if highlight == comment %}active{% endif %}" id="comment-{{ comment.id }}">
               <div class="photo-wrapper">
                 <img alt="{{ comment.author }}"  src="data:image/jpg;base64,{{ comment.author.photo }}" class="img-thumbnail" />
               </div>
@@ -83,9 +83,23 @@
                         <time>Le {{ comment.createdAt|date('d/m/Y \\à H:i') }}</time>
                       </cite>
                     </footer>
-                    <div class="actions">
-                      <a href="#" class="text-muted"><i class="fa fa-fw fa-trash"></i> Supprimer</a>
-                    </div>
+                    {% if is_granted('ROLE_ADMIN') or comment.author.id == app.user.id %}
+                      <div class="actions">
+                        <a
+                            class="text-muted"
+                            tabindex="0"
+                            role="button"
+                            data-toggle="popover"
+                            data-trigger="click"
+                            title="Confirmer ?"
+                            data-content="<a class='btn btn-sm btn-danger remove-comment' data-comment-id='{{ comment.id }}' onclick='$(this).removeComment();'><i class='fa fa-fw fa-trash'></i></a><a class='btn btn-sm btn-default'><i class='fa fa-fw fa-times'></i></a>"
+                            data-html="true"
+                            data-placement="bottom"
+                        >
+                          <i class="fa fa-fw fa-trash"></i> Supprimer
+                        </a>
+                      </div>
+                    {% endif %}
                   </blockquote>
                 </div>
               </div>
