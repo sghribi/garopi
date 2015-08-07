@@ -76,10 +76,18 @@ class Article
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArticleMedia", cascade={"persist"}, mappedBy="article")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArticleMedia", cascade={"persist", "remove"}, mappedBy="article")
      * @ORM\OrderBy({"position" = "ASC"})
      */
     protected $medias;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", cascade={"persist", "remove"}, mappedBy="article", fetch="EAGER")
+     * @ORM\OrderBy({"createdAt" = "ASC"})
+     */
+    protected $comments;
 
     /**
      * @return string
@@ -246,6 +254,7 @@ class Article
     public function __construct()
     {
         $this->medias = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -281,5 +290,50 @@ class Article
     public function getMedias()
     {
         return $this->medias;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param Comment $comment
+     *
+     * @return Article
+     */
+    public function addComment(Comment $comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setArticle($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param Comment $comment
+     */
+    public function removeComment(Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Get nb comments
+     *
+     * @return integer
+     */
+    public function getNbComments()
+    {
+        return $this->comments->count();
     }
 }

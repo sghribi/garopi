@@ -35,7 +35,7 @@ class ArticleMedia
     protected $position = 0;
 
     /**
-     * @var Media
+     * @var Article
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article", cascade={"persist"}, inversedBy="medias")
      */

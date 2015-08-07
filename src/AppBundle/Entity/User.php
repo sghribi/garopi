@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
@@ -62,11 +63,20 @@ class User extends BaseUser implements UserInterface
     protected $wantsToReceiveMails = false;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", cascade={"persist", "remove"}, mappedBy="author", fetch="EAGER")
+     * @ORM\OrderBy({"createdAt" = "ASC"})
+     */
+    protected $comments;
+
+    /**
      * {@inheritdoc}
      */
     public function __construct()
     {
         parent::__construct();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -181,5 +191,50 @@ class User extends BaseUser implements UserInterface
     public function getWantsToReceiveMails()
     {
         return $this->wantsToReceiveMails;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param Comment $comment
+     *
+     * @return User
+     */
+    public function addComment(Comment $comment)
+    {
+        $this->comments[] = $comment;
+        $comment->setAuthor($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param Comment $comment
+     */
+    public function removeComment(Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Get nb comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNbComments()
+    {
+        return $this->comments->count();
     }
 }

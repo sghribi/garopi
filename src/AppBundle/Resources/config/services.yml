@@ -55,6 +55,15 @@ services:
             - AppBundle\Entity\Article
             - ~
 
+    sonata.admin.comment:
+        class: AppBundle\Admin\CommentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Articles", label: "Comments" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Comment
+            - ~
+
     sonata.admin.article_media:
         class: AppBundle\Admin\ArticleMediaAdmin
         tags:

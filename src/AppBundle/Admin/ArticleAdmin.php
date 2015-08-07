@@ -47,6 +47,7 @@ class ArticleAdmin extends Admin
             ->add('category', null, array('editable' => true))
             ->add('authorName', null, array('editable' => true))
             ->add('createdAt')
+            ->add('nbComments')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -100,6 +101,7 @@ class ArticleAdmin extends Admin
             ->add('createdAt')
             ->add('updatedAt')
             ->add('content')
+            ->add('comments')
         ;
     }
 
