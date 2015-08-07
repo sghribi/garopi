@@ -105,12 +105,10 @@
           <div class="horoscopes">
 
             {# @TODO #}
-            {% set horoscopes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L'] %}
-
             <ul class="nav nav-pills nav-justified horoscope-select" role="tablist">
               {% for horoscope in horoscopes %}
                 <li role="tab" class="{% if loop.index == 1 %}active{% endif %}">
-                  <a aria-controls="horoscope-{{ horoscope }}" data-toggle="tab" href="#horoscope-{{ horoscope }}">{{ horoscope }}</a>
+                  <a aria-controls="horoscope-{{ horoscope.letter }}" data-toggle="tab" href="#horoscope-{{ horoscope.letter }}">{{ horoscope.letter }}</a>
                 </li>
               {% endfor %}
             </ul>
@@ -118,10 +116,10 @@
 
             <div class="tab-content">
               {% for horoscope in horoscopes %}
-                <div role="tabpanel" class="tab-pane {% if loop.index == 1 %}active{% endif %}" id="horoscope-{{ horoscope }}">
+                <div role="tabpanel" class="tab-pane {% if loop.index == 1 %}active{% endif %}" id="horoscope-{{ horoscope.letter }}">
                   <blockquote>
-                    <p>Horoscope du {{ horoscope }} (@TODO)</p>
-                    <footer>Signé, <cite title="Source Title">la Rédaction</cite></footer>
+                    <p>{{ horoscope.content }}</p>
+                    <footer>Signé, <cite title="Source Title">{{ horoscope.authorName }}</cite></footer>
                   </blockquote>
                 </div>
               {% endfor %}

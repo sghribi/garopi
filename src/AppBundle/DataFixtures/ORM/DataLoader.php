@@ -17,6 +17,7 @@ class DataLoader extends DataFixtureLoader
         $fixtures = array(
             __DIR__ . '/article_categories.yml',
             __DIR__ . '/users.yml',
+            __DIR__ . '/horoscopes.yml',
         );
 
 

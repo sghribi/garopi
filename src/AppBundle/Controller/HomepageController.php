@@ -24,17 +24,21 @@ class HomepageController extends Controller
         $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesWithCover();
         $last3Articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticles(3);
         $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
+
         //@TODO: can be optimised...
         $articlesByCategory = array();
         foreach ($categories as $category) {
             $articlesByCategory[$category->getSlug()] = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesInCategory($category, 2);
         }
 
+        $horoscopes = $this->getDoctrine()->getRepository('AppBundle:Horoscope')->findBy(array(), array('letter' => 'ASC'));
+
         return array(
             'articlesWithCover' => $articlesWithCover,
             'categories' => $categories,
             'last3Articles' => $last3Articles,
             'articlesByCategory' => $articlesByCategory,
+            'horoscopes' => $horoscopes,
         );
     }
 

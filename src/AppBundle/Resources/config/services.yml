@@ -64,6 +64,15 @@ services:
             - AppBundle\Entity\Comment
             - ~
 
+    sonata.admin.reading:
+        class: AppBundle\Admin\ReadingAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Articles", label: "Readings" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Reading
+            - ~
+
     sonata.admin.article_media:
         class: AppBundle\Admin\ArticleMediaAdmin
         tags:
@@ -71,4 +80,13 @@ services:
         arguments:
             - ~
             - AppBundle\Entity\ArticleMedia
+            - ~
+
+    sonata.admin.horoscope:
+        class: AppBundle\Admin\HoroscopeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Horoscopes", label: "Horoscopes" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Horoscope
             - ~

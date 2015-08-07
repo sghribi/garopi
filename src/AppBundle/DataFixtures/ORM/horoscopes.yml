@@ -1,0 +1,52 @@
+AppBundle\Entity\Horoscope:
+  A:
+    letter: A
+    content: 'TODO'
+    authorName: 'la Rédaction'
+  B:
+    letter: B
+    content: 'TODO'
+    authorName: 'la Rédaction'
+  C:
+    letter: C
+    content: 'TODO'
+    authorName: 'la Rédaction'
+  D:
+    letter: D
+    content: 'TODO'
+    authorName: 'la Rédaction'
+
+  E:
+    letter: E
+    content: 'TODO'
+    authorName: 'la Rédaction'
+
+  F:
+    letter: F
+    content: 'TODO'
+    authorName: 'la Rédaction'
+
+  G:
+    letter: G
+    content: 'TODO'
+    authorName: 'la Rédaction'
+
+  H:
+    letter: H
+    content: 'TODO'
+    authorName: 'la Rédaction'
+
+  I:
+    letter: I
+    content: 'TODO'
+    authorName: 'la Rédaction'
+
+  K:
+    letter: K
+    content: 'TODO'
+    authorName: 'la Rédaction'
+
+  L:
+    letter: L
+    content: 'TODO'
+    authorName: 'la Rédaction'
