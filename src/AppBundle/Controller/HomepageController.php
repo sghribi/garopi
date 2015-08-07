@@ -75,7 +75,7 @@ class HomepageController extends Controller
 
     /**
      * @Route("/settings/notify-by-mail", options={"expose": true})
-     * @Method("POST")
+     * @Method("PUT")
      */
     public function notifyByMailAction()
     {
