@@ -36,9 +36,67 @@
     .aside {
       .make-sm-column(4, 0);
     }
+
+    .author {
+      .pull-right();
+    }
   }
 
-  .author {
-    .pull-right();
+
+  .comments {
+    color: #000000;
+    font-family: DroidSansRegular, Verdana, sans-serif;
+
+    .list-group-item.active {
+      background-color: @list-group-hover-bg;
+    }
+
+    .comment-form {
+      textarea {
+        resize: none;
+        float: left;
+        height: 130px;
+        width: 100%;
+      }
+
+      button {
+        .pull-right();
+      }
+    }
+
+    .comment {
+      min-height: 90px;
+      .photo-wrapper {
+        width: 70px;
+        img {
+          max-width: 100%;
+        }
+        float: left;
+      }
+
+      .comment-wrapper {
+        padding-left: 85px;
+      }
+
+      .content {
+        time {
+          .hidden-xs();
+
+        }
+        time::before {
+          content: ' • ';
+        }
+
+        .actions {
+          font-size: small;
+          .pull-right();
+        }
+
+        p {
+          white-space: pre-wrap;
+        }
+      }
+
+    }
   }
 }

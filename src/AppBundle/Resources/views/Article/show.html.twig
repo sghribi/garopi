@@ -53,6 +53,46 @@
 
         </div>
       </div>
+
+      <hr/>
+
+      <div class="panel panel-default comments" id="comments">
+        <div class="panel-body">
+          <h3><i class="fa fa-fw fa-comments"></i> Réagir à cette article</h3>
+          <hr/>
+          <form class="form-inline comment-form" action="{{ path('app_article_show', {slug: article.slug}) }}#comments" method="post">
+            {{ form_errors(form.content) }}
+            {{ form_widget(form.content) }}
+            {{ form_widget(form._token) }}
+            <button class="btn btn-sm btn-success"><i class="fa fa-fw fa-comment"></i> Commenter</button>
+          </form>
+        </div>
+        <ul class="list-group">
+          {% for comment in article.comments|reverse %}
+            <li class="list-group-item comment {% if highlight == comment %}active{% endif %}">
+              <div class="photo-wrapper">
+                <img alt="{{ comment.author }}"  src="data:image/jpg;base64,{{ comment.author.photo }}" class="img-thumbnail" />
+              </div>
+              <div class="comment-wrapper">
+                <div class="content">
+                  <blockquote>
+                    <p>{{ comment.content }}</p>
+                    <footer>
+                      <cite title="{{ comment.author }}">
+                        <a href="https://my.ecp.fr/m/{{ comment.author.username }}" target="_blank">{{ comment.author.firstName }} {{ comment.author.lastName }}</a>
+                        <time>Le {{ comment.createdAt|date('d/m/Y \\à H:i') }}</time>
+                      </cite>
+                    </footer>
+                    <div class="actions">
+                      <a href="#" class="text-muted"><i class="fa fa-fw fa-trash"></i> Supprimer</a>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
 

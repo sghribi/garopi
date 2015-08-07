@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Comment
@@ -29,6 +30,7 @@ class Comment
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Le commentaire ne doit pas être vide.")
      * @ORM\Column(name="content", type="text")
      */
     protected $content;
@@ -52,7 +54,7 @@ class Comment
      */
     public function __toString()
     {
-        return sprintf('%s - %s', $this->author->__toString(), $this->content);
+        return sprintf('%s - %s', $this->author ? $this->author->__toString() : null, $this->content);
     }
 
     /**
