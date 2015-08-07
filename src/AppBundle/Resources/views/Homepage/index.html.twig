@@ -100,6 +100,9 @@
 
         {# Horoscope #}
         <div class="module horoscope">
+          {% if is_granted('ROLE_ADMIN') %}
+            <div class="pull-right"><a href="{{ path('sonata_horoscope_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
+          {% endif %}
           <h3><i class="fa fa-fw fa-diamond"></i>&nbsp;Horoscope&nbsp;<i class="fa fa-fw fa-diamond"></i></h3>
           <hr/>
           <div class="horoscopes">
