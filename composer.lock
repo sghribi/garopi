@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "38fb3b7ce42f8019a36f6df50a550bf1",
+    "hash": "c571de6896193fab31326146b4133ecf",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1099,7 +1099,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/b62316b4cf489495b4a84059bafc9e43a6a4d2bc",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/087f738cf8f984807efa44e6405d28b5f6009d2f",
                 "reference": "b62316b4cf489495b4a84059bafc9e43a6a4d2bc",
                 "shasum": ""
             },
@@ -1231,27 +1231,29 @@
         },
         {
             "name": "egeloen/ckeditor-bundle",
-            "version": "2.5.2",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "702109e94cbda9deebbcc9604aa8654cf71f08ee"
+                "reference": "763a41aaa24bddfcf0aa0764871396513f229ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/702109e94cbda9deebbcc9604aa8654cf71f08ee",
-                "reference": "702109e94cbda9deebbcc9604aa8654cf71f08ee",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/763a41aaa24bddfcf0aa0764871396513f229ad1",
+                "reference": "763a41aaa24bddfcf0aa0764871396513f229ad1",
                 "shasum": ""
             },
             "require": {
-                "egeloen/json-builder": "~1.0.0",
+                "egeloen/json-builder": "~1.0|~2.0",
                 "php": ">=5.3.3",
+                "symfony/dependency-injection": "~2.2",
                 "symfony/form": "~2.2",
                 "symfony/framework-bundle": "~2.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
                 "satooshi/php-coveralls": "~0.6",
+                "symfony/yaml": "^2.0.5",
                 "twig/twig": "~1.12"
             },
             "suggest": {
@@ -1260,7 +1262,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -1282,7 +1284,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2014-11-08 10:48:36"
+            "time": "2015-03-08 15:58:14"
         },
         {
             "name": "egeloen/json-builder",
@@ -1910,7 +1912,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jasny/bootstrap/zipball/f96d55965a6c3a29014c940ae3f52aeeda1920f7",
+                "url": "https://api.github.com/repos/jasny/bootstrap/zipball/843c8241e7a9a155bee1c1d4b01286ba3dde15c2",
                 "reference": "f96d55965a6c3a29014c940ae3f52aeeda1920f7",
                 "shasum": ""
             },
@@ -3407,7 +3409,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/65a726a95720af7500af72f154c038875b60bbea",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a0801f1a9af944a2164530d4be43aade53ab6a64",
                 "reference": "65a726a95720af7500af72f154c038875b60bbea",
                 "shasum": ""
             },
@@ -3494,7 +3496,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/01b65b414f79d6c0f5de156cff38003447b5a8ad",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/9ff5ed97330c59b38d5080e322046f384c36f0e3",
                 "reference": "01b65b414f79d6c0f5de156cff38003447b5a8ad",
                 "shasum": ""
             },
@@ -3620,7 +3622,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/edd5f24121455b5a91d801b1bd70a699a5d45e64",
+                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/06a46292f2651fd5228ec85010944057c6c002d0",
                 "reference": "edd5f24121455b5a91d801b1bd70a699a5d45e64",
                 "shasum": ""
             },
@@ -3686,7 +3688,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/747d4660a71f4f3133a08d118da0761c43187fab",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/d5e0aea3998d6e94de01c475db972dca67786c28",
                 "reference": "747d4660a71f4f3133a08d118da0761c43187fab",
                 "shasum": ""
             },
@@ -3755,7 +3757,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/fec0147e99b3db467152d148126e2f894c9369a2",
+                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/cc42f2801011d7ebc65edda451a2efa4b4d1fbb9",
                 "reference": "fec0147e99b3db467152d148126e2f894c9369a2",
                 "shasum": ""
             },
@@ -3861,7 +3863,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/2cd709777b571f7f7e294ad4575f38955e6da963",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/4fcec62fab9487c5479519f5d663c3d1d588a10f",
                 "reference": "2cd709777b571f7f7e294ad4575f38955e6da963",
                 "shasum": ""
             },
@@ -4691,6 +4693,61 @@
                 "framework"
             ],
             "time": "2015-07-31 13:24:45"
+        },
+        {
+            "name": "tilleuls/ckeditor-sonata-media-bundle",
+            "version": "v1.0.4",
+            "target-dir": "CoopTilleuls/Bundle/CKEditorSonataMediaBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle.git",
+                "reference": "2b7d5ef053cab9c2403e33add173f3305e06c715"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle/zipball/2b7d5ef053cab9c2403e33add173f3305e06c715",
+                "reference": "2b7d5ef053cab9c2403e33add173f3305e06c715",
+                "shasum": ""
+            },
+            "require": {
+                "sonata-project/media-bundle": "~2.3"
+            },
+            "suggest": {
+                "egeloen/ckeditor-bundle": "for easy Symfony integration"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "CoopTilleuls\\Bundle\\CKEditorSonataMediaBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kévin Dunglas",
+                    "email": "kevin@les-tilleuls.coop",
+                    "homepage": "http://dunglas.fr"
+                }
+            ],
+            "description": "Integrates SonataMediaBundle with CKEditor",
+            "homepage": "http://les-tilleuls.coop",
+            "keywords": [
+                "CKEditor",
+                "file",
+                "image",
+                "media",
+                "sonata",
+                "upload"
+            ],
+            "time": "2014-10-09 19:04:51"
         },
         {
             "name": "twbs/bootstrap",

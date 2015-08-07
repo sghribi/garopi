@@ -70,7 +70,7 @@ class ArticleAdmin extends Admin
             ->add('published', null, array(
                 'required' => false,
             ))
-            ->add('content', null, array(
+            ->add('content', 'ckeditor', array(
                 'attr' => array(
                     'class' => 'ckeditor',
                 ),

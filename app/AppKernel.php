@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
