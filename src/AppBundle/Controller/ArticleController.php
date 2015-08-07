@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
+use AppBundle\Entity\Reading;
 use AppBundle\Form\Type\CommentType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -23,6 +24,11 @@ class ArticleController extends Controller
      */
     public function showAction(Article $article, Request $request)
     {
+        // @TODO: move this in service/event
+        $em = $this->getDoctrine()->getManager();
+        $em->persist(new Reading($this->getUser(), $article));
+        $em->flush();
+
         // Comment to highlight
         $highlight = null;
         $comment = new Comment();
@@ -31,7 +37,6 @@ class ArticleController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $article->addComment($comment);
             $comment->setAuthor($this->getUser());
             $em->persist($comment);

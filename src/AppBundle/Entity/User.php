@@ -65,10 +65,17 @@ class User extends BaseUser implements UserInterface
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", cascade={"persist", "remove"}, mappedBy="author", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", cascade={"persist", "remove"}, mappedBy="author")
      * @ORM\OrderBy({"createdAt" = "ASC"})
      */
     protected $comments;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reading", cascade={"persist", "remove"}, mappedBy="reader")
+     */
+    protected $readings;
 
     /**
      * {@inheritdoc}
@@ -77,6 +84,7 @@ class User extends BaseUser implements UserInterface
     {
         parent::__construct();
         $this->comments = new ArrayCollection();
+        $this->readings = new ArrayCollection();
     }
 
     /**
@@ -236,5 +244,40 @@ class User extends BaseUser implements UserInterface
     public function getNbComments()
     {
         return $this->comments->count();
+    }
+
+    /**
+     * Add reading
+     *
+     * @param Reading $reading
+     *
+     * @return User
+     */
+    public function addReading(Reading $reading)
+    {
+        $this->readings[] = $reading;
+        $reading->setReader($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove reading
+     *
+     * @param Reading $readings
+     */
+    public function removeReading(Reading $reading)
+    {
+        $this->readings->removeElement($reading);
+    }
+
+    /**
+     * Get readings
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReadings()
+    {
+        return $this->readings;
     }
 }

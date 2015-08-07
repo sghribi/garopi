@@ -38,7 +38,7 @@ class Comment
     /**
      * @var Article
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article", cascade={"persist"}, inversedBy="comments", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Article", cascade={"persist"}, inversedBy="comments")
      */
     protected $article;
 

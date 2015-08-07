@@ -84,10 +84,17 @@ class Article
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", cascade={"persist", "remove"}, mappedBy="article", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", cascade={"persist", "remove"}, mappedBy="article")
      * @ORM\OrderBy({"createdAt" = "ASC"})
      */
     protected $comments;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reading", cascade={"persist", "remove"}, mappedBy="article")
+     */
+    protected $readings;
 
     /**
      * @return string
@@ -255,6 +262,7 @@ class Article
     {
         $this->medias = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->readings = new ArrayCollection();
     }
 
     /**
@@ -335,5 +343,50 @@ class Article
     public function getNbComments()
     {
         return $this->comments->count();
+    }
+
+    /**
+     * Add reading
+     *
+     * @param Reading $reading
+     *
+     * @return Article
+     */
+    public function addReading(Reading $reading)
+    {
+        $this->readings[] = $reading;
+        $reading->setArticle($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove reading
+     *
+     * @param Reading $readings
+     */
+    public function removeReading(Reading $reading)
+    {
+        $this->readings->removeElement($reading);
+    }
+
+    /**
+     * Get readings
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReadings()
+    {
+        return $this->readings;
+    }
+
+    /**
+     * Get nb readings
+     *
+     * @return integer
+     */
+    public function getNbReadings()
+    {
+        return $this->readings->count();
     }
 }
