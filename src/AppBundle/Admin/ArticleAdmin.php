@@ -26,6 +26,7 @@ class ArticleAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('title')
+            ->add('summary')
             ->add('published')
             ->add('category', 'doctrine_orm_model_autocomplete', array(), null, array(
                 'property' => 'name'
@@ -42,6 +43,7 @@ class ArticleAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('title', null, array('editable' => true))
+            ->add('summary', null, array('editable' => true))
             ->add('slug')
             ->add('published', null, array('editable' => true))
             ->add('category', null, array('editable' => true))
@@ -65,6 +67,7 @@ class ArticleAdmin extends Admin
     {
         $formMapper
             ->add('title')
+            ->add('summary')
             ->add('category')
             ->add('authorName')
             ->add('published', null, array(
@@ -95,6 +98,7 @@ class ArticleAdmin extends Admin
             ->add('id')
             ->add('title')
             ->add('slug')
+            ->add('summary')
             ->add('published')
             ->add('category')
             ->add('authorName')

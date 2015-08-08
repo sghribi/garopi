@@ -1,0 +1,31 @@
+Garopi\LegacyWrapperBundle\Entity\AdminCategories:
+    type: entity
+    table: admin_categories
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+        description:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+        createdAt:
+            type: string
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: string
+            nullable: false
+            column: updated_at
+    lifecycleCallbacks: {  }

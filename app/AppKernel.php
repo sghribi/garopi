@@ -40,6 +40,7 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
+            new Garopi\LegacyWrapperBundle\GaropiLegacyWrapperBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

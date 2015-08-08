@@ -2,6 +2,7 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 
 /**
@@ -20,12 +21,14 @@ class DataLoader extends DataFixtureLoader
             __DIR__ . '/horoscopes.yml',
         );
 
-
-        if ($this->container->get('kernel')->getEnvironment() != 'prod') {
-            $fixtures[] = __DIR__ . '/articles.yml';
-
-        }
-
         return  $fixtures;
+    }
+
+    public function load(ObjectManager $manager)
+    {
+        parent::load($manager);
+
+        $manager->getConnection()->exec('INSERT INTO classification__context (id, name, enabled, created_at, updated_at) VALUES (\'default\', \'Default\', true, NOW(), NOW());');
+        $manager->getConnection()->exec('INSERT INTO classification__category (id, parent_id, context, name, enabled, slug, description, position, created_at, updated_at, media_id) VALUES (1, NULL, \'default\', \'Root\', true, \'root\', NULL, 1, NOW(), NOW(), NULL);');
     }
 }

@@ -4,18 +4,28 @@ AppBundle\Entity\ArticleCategory:
         slug: "centrale"
         order: 1
         fontawesomeClass: 'graduation-cap'
+        description: "Tout sur notre merveilleuse école."
     articlecategory_associatif:
         name: "Associatif"
         slug: "associatif"
         order: 2
         fontawesomeClass: 'users'
+        description: "Qu'elles soient bonnes ou mauvaises, les associations centraliennes sont toujours matière à articles."
     articlecategory_science:
         name: "Science"
         slug: "science"
         order: 3
         fontawesomeClass: 'flask'
+        description: "Toutes les informations concernant les sciences et les nouvelles technologies."
     articlecategory_divers:
         name: "Divers"
         slug: "divers"
         order: 4
         fontawesomeClass: 'random'
+        description: "Articles divers."
+    articlecategory_culinaire:
+        name: "Culinaire"
+        slug: "culinaire"
+        order: 5
+        fontawesomeClass: 'cutlery'
+        description: "Les recettes du Garopi mijotées aux petits oignons pour le plus grand bonheur de vos papilles."

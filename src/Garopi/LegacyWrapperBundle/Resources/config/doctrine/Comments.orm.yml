@@ -1,0 +1,40 @@
+Garopi\LegacyWrapperBundle\Entity\Comments:
+    type: entity
+    table: comments
+    indexes:
+        index_comments_on_article_id:
+            columns:
+                - article_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        author:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+        content:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+        articleId:
+            type: integer
+            nullable: true
+            unsigned: false
+            column: article_id
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+    lifecycleCallbacks: {  }

@@ -37,6 +37,14 @@ class ArticleCategory
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Merci de préciser une description de catégorie.")
+     * @ORM\Column(name="description", type="string", length=511)
+     */
+    protected $description;
+
+    /**
+     * @var string
+     *
      * @Assert\NotBlank(message="Merci de préciser un ordre d'affichage.")
      * @ORM\Column(name="appearance_order", type="integer")
      */
@@ -58,7 +66,7 @@ class ArticleCategory
     /**
      * @var ArrayCollection $gangs
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article", mappedBy="category", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Article", mappedBy="category", cascade={"persist"}, fetch="EAGER")
      * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     protected $articles;
@@ -225,5 +233,28 @@ class ArticleCategory
     public function getFontawesomeClass()
     {
         return $this->fontawesomeClass;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return ArticleCategory
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

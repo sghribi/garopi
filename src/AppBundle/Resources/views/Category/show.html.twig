@@ -14,6 +14,7 @@
     <div class="jumbotron text-center">
       {% if articles.getTotalItemCount %}
         <h2>{{ category.name }} : {{ articles.getTotalItemCount }} article{% if articles.getTotalItemCount > 1 %}s{% endif %}</h2>
+        <p>{{ category.description }}</p>
       {% else %}
         <h1>:(</h1>
         <br/>
@@ -37,7 +38,7 @@
           <a href="{{ path('app_article_show', {slug: article.slug}) }}">
             <h3 class="media-heading">{{ article.title }}<br/><small><i>Par <strong>{{ article.authorName }}</strong>, le {{ article.createdAt|date }}</i></small></h3>
           </a>
-          {{ article.content|striptags|raw|slice(0, 150) }}…
+          {{ article.summary }}
         </div>
       </div>
     {% endfor %}

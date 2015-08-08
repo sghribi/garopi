@@ -1,0 +1,26 @@
+Garopi\LegacyWrapperBundle\Entity\AdminNouvelles:
+    type: entity
+    table: admin_nouvelles
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        content:
+            type: text
+            nullable: true
+            length: null
+            fixed: false
+        createdAt:
+            type: datetime
+            nullable: false
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: false
+            column: updated_at
+    lifecycleCallbacks: {  }

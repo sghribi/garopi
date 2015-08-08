@@ -38,6 +38,14 @@ class Article
     /**
      * @var string
      *
+     * @Assert\NotBlank(message="Merci de préciser un résumé.")
+     * @ORM\Column(name="summary", type="string", length=511)
+     */
+    protected $summary;
+
+    /**
+     * @var string
+     *
      * @Assert\NotBlank(message="Merci de préciser un contenu.")
      * @ORM\Column(name="content", type="text")
      */
@@ -68,7 +76,7 @@ class Article
      * @var ArrayCollection $categories
      *
      * @Assert\NotNull(message="Veuillez associer l'article à une catégorie")
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ArticleCategory", inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ArticleCategory", inversedBy="articles", cascade={"persist"})
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
      */
     protected $category;
@@ -388,5 +396,28 @@ class Article
     public function getNbReadings()
     {
         return $this->readings->count();
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     * @return Article
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string 
+     */
+    public function getSummary()
+    {
+        return $this->summary;
     }
 }

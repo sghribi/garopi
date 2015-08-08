@@ -1,3 +1,8 @@
+garopi_legacy_wrapper:
+    resource: "@GaropiLegacyWrapperBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

@@ -9,7 +9,7 @@
         <div class="carousel-caption">
           <h4>{{ article.title }}</h4>
           <p>
-            {{ article.content|striptags|raw|slice(0, 30) }}…&nbsp;
+            {{ article.summary }}&nbsp;
             <a href="{{ path('app_article_show', {slug: article.slug}) }}">Lire l'article</a>
           </p>
         </div>
@@ -39,7 +39,7 @@
                   {% endif %}
                   <h3>{{ firstArticle.title }}</h3>
                 </a>
-                <p>{{ firstArticle.content|striptags|raw|slice(0, 70) }}…</p>
+                <p>{{ firstArticle.summary }}</p>
                 <p class="interactions">
                   <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ firstArticle.nbComments }}</a>
                   <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>{{ firstArticle.nbReadings }}</a>
@@ -52,7 +52,7 @@
                     <a href="{{ path('app_article_show', {slug: article.slug}) }}">
                       <h3>{{ article.title }}</h3>
                     </a>
-                    <p>{{ article.content|striptags|raw|slice(0, 70) }}…</p>
+                    <p>{{ article.summary }}</p>
                     <p class="interactions">
                       <a href="{{ path('app_article_show', {slug: article.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ article.nbComments }}</a>
                       <a href="{{ path('app_article_show', {slug: article.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>{{ article.nbReadings }}</a>
@@ -78,7 +78,7 @@
                 <a href="{{ path('app_article_show', {slug: article.slug}) }}">
                   <h3>{{ article.title }}</h3>
                 </a>
-                <p>{{ article.content|striptags|raw|slice(0, 70) }}…</p>
+                <p>{{ article.summary }}</p>
                 <p class="interactions">
                   <a href="{{ path('app_article_show', {slug: article.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ article.nbComments }}</a>
                   <a href="{{ path('app_article_show', {slug: article.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>{{ article.nbReadings }}</a>
