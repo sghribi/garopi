@@ -44,12 +44,12 @@ $(document).ready(function() {
 
   // Enable article carousel
   $('#article-carousel').owlCarousel({
-    autoHeight: false,
+    autoHeight: true,
     loop: true,
     items: 1,
     margin: 10,
     lazyLoad: true,
-    autoplay: true,
+    autoplay: false,
     autoplayTimeout: 3000,
     autoplayHoverPause: true
   });

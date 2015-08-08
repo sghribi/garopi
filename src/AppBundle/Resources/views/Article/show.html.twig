@@ -37,7 +37,7 @@
           <div id="article-carousel" class="owl-carousel">
             {% for media in article.medias %}
               <div class="item {% if loop.first %}active{% endif %}">
-                <img class="owl-lazy" data-src="{% path media.media, 'cover' %}" alt="{{ article.title }}" />
+                <img class="owl-lazy" data-src="{% path media.media, 'reference' %}" alt="{{ article.title }}" />
                 <div class="carousel-caption">
                   <p>{{ media.legend }}</p>
                 </div>
