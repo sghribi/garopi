@@ -39,6 +39,7 @@ class ArticleRepository extends EntityRepository
             ->leftJoin('a.medias', 'am')
             ->where('a.published = true')
             ->groupBy('a.id')
+            ->orderBy('a.createdAt', 'DESC')
             ->setMaxResults($nb);
 
         return $qb->getQuery()->getResult();
