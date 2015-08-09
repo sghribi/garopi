@@ -171,6 +171,6 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
     protected function nl2p($str)
     {
         $str = str_replace( array("\r\n", "\r"), "\n", $str );
-        return "<p>\n" . str_replace( "\n", "\n</p>\n<p>\n", $str ) . "\n</p>";
+        return "<p>" . str_replace( "\n", "</p><p>", $str ) . "</p>";
     }
 }
