@@ -29,12 +29,12 @@
       <div class="article-wrapper">
         <div class="main">
 
-          <div class="jumbotron">
+          <div class="page-header">
             <h2>{{ article.title }}</h2>
             <p>Par <em>{{ article.authorName }}</em></p>
           </div>
 
-          <div id="article-carousel" class="owl-carousel">
+          <div id="article-carousel" class="owl-carousel owl-theme">
             {% for media in article.medias %}
               <div class="item {% if loop.first %}active{% endif %}">
                 <img class="owl-lazy" data-src="{% path media.media, 'reference' %}" alt="{{ article.title }}" />

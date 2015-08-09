@@ -2,7 +2,7 @@
 
 {% block body %}
   <div class="container">
-  <div id="homepage-carousel" class="owl-carousel">
+  <div id="homepage-carousel" class="owl-carousel owl-theme">
     {% for article in articlesWithCover %}
       <div class="item {% if loop.first %}active{% endif %}">
         <img class="owl-lazy" data-src="{% path (article.medias|first).media, 'cover' %}" alt="{{ article.title }}" />

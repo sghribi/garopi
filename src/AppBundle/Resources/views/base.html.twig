@@ -13,10 +13,10 @@
     <title>{{ title|default(site_name) }}</title>
 
     {% stylesheets output="css/main.css"
-      '@AppBundle/Resources/public/less/main.less'
       '../vendor/rstacruz/nprogress/nprogress.css'
       '../vendor/smashingboxes/OwlCarousel2/dist/assets/owl.carousel.css'
       '../vendor/smashingboxes/OwlCarousel2/dist/assets/owl.theme.default.css'
+      '@AppBundle/Resources/public/less/main.less'
     %}
     <link href="{{ asset_url }}" rel="stylesheet" media="screen">
     {% endstylesheets %}
