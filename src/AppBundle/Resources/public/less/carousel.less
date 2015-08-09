@@ -17,6 +17,23 @@
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.75);
+
+    a {
+      color: currentColor;
+    }
+
+    p {
+      @nbLines: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: @nbLines;
+      line-height: 1em;
+      max-height: 1em*@nbLines;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 }
 
