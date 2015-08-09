@@ -9,7 +9,7 @@
     <li class="active">{% if category.fontawesomeClass %}<i class="fa fa-{{ category.fontawesomeClass }}"></i> {% endif %}{{ category.name }}</li>
   </ol>
 
-  <div class="well">
+  <div class="well category">
     {# total items count #}
     <div class="jumbotron text-center">
       {% if articles.getTotalItemCount %}

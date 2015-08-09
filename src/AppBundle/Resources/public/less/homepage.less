@@ -52,6 +52,7 @@
       .alaune-main {
         h2 {
           text-align: center;
+          font-weight: 300;
         }
         img {
           margin: auto;
@@ -70,7 +71,15 @@
 
       .block-category {
         h2.category-title {
-          margin-left: 30px;
+          font-weight: 300;
+          line-height: inherit;
+          small {
+            font-size: initial;
+            .hidden-xs();
+          }
+          @media only screen and (min-width: @screen-xs-min) {
+            margin-left: 30px;
+          }
         }
       }
     }

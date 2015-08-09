@@ -30,7 +30,7 @@
             {% if last3Articles|length %}
               <div class="col-sm-6 alaune-main">
                 {% set firstArticle = last3Articles|first %}
-                <h2>À la une</h2>
+                <h2><i class="fa fa-fw fa-star"></i> À la une</h2>
                 <hr/>
                 <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}">
                   {% if firstArticle.medias|length %}
@@ -72,7 +72,12 @@
         {% for category in categories if articlesByCategory[category.slug]|length %}
           <div class="block block-category">
             <a class="pull-right text-muted" href="{{ path('app_category_show', {slug: category.slug}) }}"><i class="fa fa-fw fa-plus-square"></i>Voir tous les articles</a>
-            <h2 class="category-title">{{ category.name }}</h2>
+            <h2 class="category-title">
+              {% if category.fontawesomeClass %}<i class="fa fa-fw fa-{{ category.fontawesomeClass }} hidden-xs"></i> {% endif %}
+              {{ category.name }}
+              <br/>
+              <small>{{ category.description }}</small>
+            </h2>
             <hr/>
             {% for article in articlesByCategory[category.slug] %}
               <div class="article">
