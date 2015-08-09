@@ -50,7 +50,7 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
 
             $title = $oldArticle->getTitle();
             $summary = $oldArticle->getSummary();
-            $content = nl2br($this->bbcode_to_html($oldArticle->getContent()));
+            $content = $this->bbcode_to_html($oldArticle->getContent());
             $authorName = $oldArticle->getAuthor();
             $createdAt = new \DateTime($oldArticle->getCreatedAt());
             $updatedAt = new \DateTime($oldArticle->getUpdatedAt());
@@ -158,6 +158,19 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
         foreach($bbextended as $match=>$replacement){
             $bbtext = preg_replace($match, $replacement, $bbtext);
         }
-        return $bbtext;
+
+        return $this->nl2p($bbtext);
+        return $this->nl2p($bbtext);
+    }
+
+    /**
+     * @param $str
+     *
+     * @return string
+     */
+    protected function nl2p($str)
+    {
+        $str = str_replace( array("\r\n", "\r"), "\n", $str );
+        return "<p>\n" . str_replace( "\n", "\n</p>\n<p>\n", $str ) . "\n</p>";
     }
 }
