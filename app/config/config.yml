@@ -34,6 +34,7 @@ twig:
         fontawesome_dir: %kernel.root_dir%/../vendor/fortawesome/font-awesome
         jasny_bootstrap_dir: %kernel.root_dir%/../vendor/jasny/bootstrap
         social_bootstrap_dir: %kernel.root_dir%/../vendor/lipis/bootstrap-social
+        google_analytics_tracking_id: %google_analytics_tracking_id%
 
 # Assetic Configuration
 assetic:

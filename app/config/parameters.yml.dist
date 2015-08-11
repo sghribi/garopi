@@ -22,4 +22,5 @@ parameters:
 
     bind_dn:           uid=garopi,ou=applications,dc=campus,dc=ecp,dc=fr
     ldap_password:     ~
-    
+
+    google_analytics_tracking_id: UA-XXXXXXXX-X
