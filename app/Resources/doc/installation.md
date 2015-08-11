@@ -145,9 +145,14 @@ sudo update-ca-certificates
 Installation du projet
 ----------------------
 
+Il faut avoir accès à deux repo Git :
+
+ * https://github.com/sghribi/garopi
+ * https://gitlab.my.ecp.fr/garopi/garopi-legacy
+
 ``` bash
 cd /var/www/
-git clone git@github.com:sghribi/garopi.git
+git clone git@github.com:sghribi/garopi.git --recursive
 ```
 
 ### Vérification du système
@@ -187,5 +192,6 @@ php app/console assetic:dump
 ### Initialisation de la BDD
 
 ``` bash
-php app/console dox:fix:load --env=dev
+php app/console doctrine:fixtures:load --purge-with-truncate
+php app/console garopi:import:old-database
 ```
