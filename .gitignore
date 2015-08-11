@@ -21,4 +21,3 @@
 /app/Resources/less/bootstrap.less
 .bundle/
 /src/**/*.php~
-/legacy/*

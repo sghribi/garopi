@@ -11,12 +11,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Comment;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ArticleController
  */
 class ArticleController extends Controller
 {
+    /**
+     * @Route("/articles/{legacyId}", requirements={"legacyId": "\d+"})
+     * @ParamConverter("article", options={"mapping": {"legacyId": "legacyId"}, "entity_manager" = "default"})
+     */
+    public function showLegacyArticleAction(Article $article)
+    {
+        return $this->redirectToRoute('app_article_show', array('slug' => $article->getSlug()), Response::HTTP_MOVED_PERMANENTLY);
+    }
+
     /**
      * @Route("/articles/{slug}")
      * @Template("AppBundle:Article:show.html.twig")

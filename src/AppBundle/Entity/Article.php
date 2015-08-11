@@ -73,6 +73,13 @@ class Article
     protected $slug;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="legacy_id", unique=true, nullable=true)
+     */
+    protected $legacyId;
+
+    /**
      * @var ArrayCollection $categories
      *
      * @Assert\NotNull(message="Veuillez associer l'article à une catégorie")
@@ -419,5 +426,28 @@ class Article
     public function getSummary()
     {
         return $this->summary;
+    }
+
+    /**
+     * Set legacyId
+     *
+     * @param string $legacyId
+     * @return Article
+     */
+    public function setLegacyId($legacyId)
+    {
+        $this->legacyId = $legacyId;
+
+        return $this;
+    }
+
+    /**
+     * Get legacyId
+     *
+     * @return string 
+     */
+    public function getLegacyId()
+    {
+        return $this->legacyId;
     }
 }

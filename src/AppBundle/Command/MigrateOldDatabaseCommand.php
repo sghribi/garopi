@@ -5,6 +5,7 @@ namespace AppBundle\Command;
 use AppBundle\Entity\Article;
 use AppBundle\Entity\ArticleCategory;
 use AppBundle\Entity\ArticleMedia;
+use Garopi\LegacyWrapperBundle\Entity\Articles;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -46,8 +47,9 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
 
         $mediaManager = $this->getContainer()->get('sonata.media.manager.media');
 
+        /** @var Articles $oldArticle */
         foreach ($oldArticles as $oldArticle) {
-
+            $legacyId = $oldArticle->getId();
             $title = $oldArticle->getTitle();
             $summary = $oldArticle->getSummary();
             $content = $this->bbcode_to_html($oldArticle->getContent());
@@ -91,6 +93,7 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
             $article->setPublished(true);
             $article->setCreatedAt($createdAt);
             $article->setUpdatedAt($updatedAt);
+            $article->setLegacyId($legacyId);
             $article->setCategory($category);
             $category->addArticle($article);
 

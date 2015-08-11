@@ -9,8 +9,9 @@ set :default_stage, "dev"
 set :stage_dir,     "app/config/stages"
 require 'capistrano/ext/multistage'
 
-set :repository,  "git@github.com:sghribi/garopi.git"
-set :scm,         :git
+set :repository,            "git@github.com:sghribi/garopi.git"
+set :scm,                   :git
+set :git_enable_submodules, 1
 
 # project config
 set :use_composer,          true
