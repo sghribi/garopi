@@ -58,9 +58,9 @@ class User extends BaseUser implements UserInterface
     /**
      * @var boolean
      *
-     * @ORM\Column(name="wants_to_receive_mails", type="boolean", options={"default" = false})
+     * @ORM\Column(name="wants_to_receive_mails", type="boolean", options={"default" = true})
      */
-    protected $wantsToReceiveMails = false;
+    protected $wantsToReceiveMails = true;
 
     /**
      * @var ArrayCollection
