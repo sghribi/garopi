@@ -12,6 +12,7 @@ Prérequis
  * `phpunit`, pour lancer les tests unitaires/fonctionnels
  * `bundler`, pour gérer les dépendances Ruby
  * `capifony`, pour déployer
+ * Avoir/avoir accès à une machine avec une IP en 138.195.128.0/19
 
 On Ubuntu/Debian, run :
 
@@ -194,4 +195,21 @@ php app/console assetic:dump
 ``` bash
 php app/console doctrine:fixtures:load --purge-with-truncate
 php app/console garopi:import:old-database
+```
+
+### Accès au LDAP de VIA (MyECP) (optionnel si vous avez une IP en 138.195.128.0/19)
+
+Créer une redirection de port :
+
+``` bash
+sudo ssh -L 389:<machine>.via.ecp.fr:389 <user>@<machine>.via.ecp.fr
+```
+
+Puis, rajouter dans `app/config/parameters.yml` :
+
+``` yml
+parameters:
+    # Other parameters...
+
+    ldap.myecp.host: localhost
 ```
