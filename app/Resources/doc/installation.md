@@ -211,5 +211,5 @@ Puis, rajouter dans `app/config/parameters.yml` :
 parameters:
     # Other parameters...
 
-    ldap.myecp.host: localhost
+    ldap_host: localhost
 ```
