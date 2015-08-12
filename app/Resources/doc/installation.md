@@ -7,7 +7,7 @@ Prérequis
 
  * `git `
  * `apache2` >= *2.4*
- * `php` >= *5.5*, avec les modules PHP suivants : `cli`, `pdo`, `curl`, `intl`, `xml`, `ldap`, `pgsql`, `ldap` et  `gd`
+ * `php` >= *5.5*, avec les modules PHP suivants : `cli`, `pdo`, `curl`, `intl`, `xml`, `ldap`, `pgsql`, `ldap`, `sqlite` et  `gd`
  * un serveur `PostgreSQL` >= 9.0.
  * `phpunit`, pour lancer les tests unitaires/fonctionnels
  * `bundler`, pour gérer les dépendances Ruby
@@ -17,7 +17,7 @@ Prérequis
 On Ubuntu/Debian, run :
 
 ``` bash
-sudo aptitude install git apache2 php5 curl php5-ldap php5-gd php5-curl php5-cli php5-intl postgresql php5-pgsql bundler phpunit
+sudo aptitude install git apache2 php5 curl php5-ldap php5-gd php5-curl php5-cli php5-intl postgresql php5-pgsql php5-sqlite bundler phpunit
 bundle install --path=vendor
 ```
 
