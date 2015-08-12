@@ -4,7 +4,7 @@ set :app_path,    "app"
 
 ssh_options[:forward_agent] = true
 
-set :stages, ["dev", "preprod", "production"]
+set :stages, ["dev", "production"]
 set :default_stage, "dev"
 set :stage_dir,     "app/config/stages"
 require 'capistrano/ext/multistage'

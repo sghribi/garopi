@@ -6,8 +6,8 @@ Environnements
 
 Les environnements suivants son disponibles :
 
- * **Production** : @TODO@
-    - IP : `TODO`
+ * **Production** : http://garopi.via.ecp.fr/
+    - IP : `138.195.130.35`
     - Branche git associée : `master`
 
  * **Dev** : http://garopi.ghribi.net/
