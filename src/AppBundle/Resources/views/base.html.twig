@@ -41,6 +41,7 @@
 
   <body class="{{ body_class|default('') }}">
   {% include 'AppBundle::socials.html.twig' %}
+  {% include 'AppBundle::flash.html.twig' %}
   {{ render(controller('AppBundle:Homepage:menu')) }}
   {% block body %}{% endblock %}
   {% block javascripts %}{% endblock %}

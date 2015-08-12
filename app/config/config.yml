@@ -285,7 +285,7 @@ ivory_ck_editor:
 parameters:
     ldap:
         myecp:
-            host: ldap.my.ecp.fr
+            host: %ldap_host%
             ssl: false
             bind_dn: %bind_dn%
             password: %ldap_password%
