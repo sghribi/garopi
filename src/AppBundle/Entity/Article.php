@@ -67,6 +67,13 @@ class Article
     protected $published = false;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="email_sent", type="boolean", options={"default"=true})
+     */
+    protected $emailSent = false;
+
+    /**
      * @Gedmo\Slug(fields={"id", "title"})
      * @ORM\Column(length=128, unique=true)
      */
@@ -449,5 +456,28 @@ class Article
     public function getLegacyId()
     {
         return $this->legacyId;
+    }
+
+    /**
+     * Set emailSent
+     *
+     * @param boolean $emailSent
+     * @return Article
+     */
+    public function setEmailSent($emailSent)
+    {
+        $this->emailSent = $emailSent;
+
+        return $this;
+    }
+
+    /**
+     * Get emailSent
+     *
+     * @return boolean 
+     */
+    public function getEmailSent()
+    {
+        return $this->emailSent;
     }
 }

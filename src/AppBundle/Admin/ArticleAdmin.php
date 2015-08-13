@@ -2,13 +2,13 @@
 
 namespace AppBundle\Admin;
 
-use FOS\UserBundle\Model\UserManagerInterface;
+use AppBundle\Entity\Article;
+use AppBundle\Events;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
-use AppBundle\Entity\ArticleMedia;
 
 /**
  * Class ArticleAdmin
@@ -28,6 +28,7 @@ class ArticleAdmin extends Admin
             ->add('title')
             ->add('summary')
             ->add('published')
+            ->add('emailSent')
             ->add('category', 'doctrine_orm_model_autocomplete', array(), null, array(
                 'property' => 'name'
             ))
@@ -46,6 +47,7 @@ class ArticleAdmin extends Admin
             ->add('summary', null, array('editable' => true))
             ->add('slug')
             ->add('published', null, array('editable' => true))
+            ->add('emailSent', null, array('editable' => true))
             ->add('category', null, array('editable' => true))
             ->add('authorName', null, array('editable' => true))
             ->add('createdAt')
@@ -100,6 +102,7 @@ class ArticleAdmin extends Admin
             ->add('slug')
             ->add('summary')
             ->add('published')
+            ->add('emailSent')
             ->add('category')
             ->add('authorName')
             ->add('createdAt')
@@ -111,17 +114,27 @@ class ArticleAdmin extends Admin
 
     public function prePersist($object)
     {
-        /** @var ArticleMedia $media */
+        /** @var Article $object */
         foreach ($object->getMedias() as $media) {
             $media->setArticle($object);
+        }
+
+        if ($object->getPublished() && !$object->getEmailSent()) {
+            $object->setEmailSent(true);
+            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
         }
     }
 
     public function preUpdate($object)
     {
-        /** @var ArticleMedia $media */
+        /** @var Article $object */
         foreach ($object->getMedias() as $media) {
             $media->setArticle($object);
+        }
+
+        if ($object->getPublished() && !$object->getEmailSent()) {
+            $object->setEmailSent(true);
+            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
         }
     }
 }

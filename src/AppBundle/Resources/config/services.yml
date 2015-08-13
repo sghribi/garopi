@@ -27,6 +27,19 @@ services:
         arguments:
             - %ldap%
 
+    app.listener.emails:
+        class:      AppBundle\EventListener\EmailListener
+        arguments:
+            - @swiftmailer.mailer
+            - @router
+            - @twig
+            - @sonata.media.twig.extension
+            - @doctrine.orm.default_entity_manager
+            - %new_article%
+            - %kernel.root_dir%
+        tags:
+            - { name: kernel.event_subscriber }
+
     # Sonata
     sonata.admin.user:
         class: AppBundle\Admin\UserAdmin

@@ -1,0 +1,143 @@
+{% block subject %}
+  {% autoescape false %}
+  Le Garopi • {{ article.title }}
+  {% endautoescape %}
+{% endblock %}
+{% block body_html %}
+  <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta property="og:title" content="{{ article.title }}">
+    <title>Le Garopi • {{ article.title }}</title>
+    <style type="text/css">
+
+      /* Iphone fix */
+      a[href^=tel]{ color:inherit; text-decoration:none;}
+
+      @media only screen and (max-width: 580px) {
+        body, table, td, p, a, li, blockquote{-webkit-text-size-adjust:none;}
+        .logo {
+          height: 100px;
+        }
+        h1 {
+          font-size: 34px;
+          line-height: 39px;
+        }
+        p {
+          font-size: 18px;
+        }
+        .button {
+          border-radius: 6px;
+        }
+        .button a {
+          font-size: 18px;
+          padding: 18px 25px;
+        }
+        .w1 { width:10px; }
+        .w18 { width:100%; padding: 0 0;}
+        .w20 { width:100%; }
+        img{ height:auto;}
+        .button {
+          max-width:600px;
+          width:100%;
+        }
+
+        .button a {
+          display:block;
+        }
+      }
+
+    </style>
+    <meta content="telephone=no" name="format-detection">
+  </head>
+  <body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" style="font-family:Helvetica, Arial, sans-serif; font-size:15px; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%">
+  <center style="width:100%; background-color: #f2f1ee;">
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse:separate; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; width:600px; padding-top:0px" width="600">
+      <!-- HEADER --><tr style="height:80px; vertical-align:top; text-align:center; background-color:#ffffff" height="80" bgcolor="#ffffff" align="center">
+        <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; vertical-align:middle; background-color:#789" bgcolor="#789">
+          <table style="border-collapse:separate; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%"><tr>
+              <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; width:554px; vertical-align:middle; background-color:#789" width="554" bgcolor="#e31d25">
+                <a href="{{ url('homepage') }}" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#EEE; text-decoration:none; font-family:Helvetica, Arial, sans-serif; display:block; vertical-align:middle; text-align:center; padding:0 0 0 42px" align="center">
+                  <h1>\_G< • Le Garopi</h1>
+                </a>
+              </td>
+            </tr></table>
+        </td>
+      </tr>
+      <!-- CONTENT --><tr>
+        <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#a1a1a1; font-size:15px; background-color:#ffffff; padding-top:0px; padding-bottom:15px" bgcolor="#ffffff">
+          <table style="border-collapse:separate; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%"><tr>
+              <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; width:540px; padding:0 30px" width="540">
+                <table style="border-collapse:separate; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; width:100%" width="100%">
+                  <tr>
+                    <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-align:center" align="center">
+                      <p style="margin-bottom:0; font-family:Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#a1a1a1; padding:20px 0 0 0; line-height:22px; margin:0; font-size:16px">Un nouvel article vient d'&#234;tre publi&#233; !</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-align:center" align="center">
+                      <h1 style="margin-top:0px; margin-bottom:0px; padding:10px 0 0 0; font-family:Helvetica, Arial, sans-serif; font-size:25px; line-height:30px">
+                        <a href="{{ url }}" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-decoration:none; font-family:Helvetica, Arial, sans-serif; color:#000; font-size:22px; line-height:25px">
+                          {{ article.title }}
+                        </a>
+                      </h1>
+                    </td>
+                  </tr>
+                  {% if cid is defined %}
+                    <tr>
+                      <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; padding-top:15px">
+                        <a href="{{ url }}" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#e31d25; text-decoration:none; font-family:Helvetica, Arial, sans-serif">
+                          <img src="{{ cid }}" alt="Cover" style="height:auto; display:inline; width:530px" height="auto" width="530">
+                        </a>
+                      </td>
+                    </tr>
+                  {% endif %}
+                  <tr>
+                    <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; text-align:center" align="center">
+                      <p style="margin-bottom:0; font-family:Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; padding:20px 0 0 0; line-height:22px; margin:0; font-size:16px; color:#333">
+                        {{ article.summary }}
+                      </p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-radius:6px; max-width:600px; width:100%; text-align:center; padding:28px 0 20px 0" width="100%" align="center">
+                      <a href="{{ url }}" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; font-family:Helvetica, Arial, sans-serif; border-radius:3px; background-color:#e31d25; font-size:15px; padding:12px 16px; color:#fff; text-decoration:none; cursor:pointer; line-height:14px; display:inline" bgcolor="#e31d25">
+                        Lire l'article
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr></table>
+        </td>
+      </tr>
+      <!-- FOOTING --><tr>
+        <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; line-height:22px; padding-top:0px; text-align:center; font-size:13px; background-color:#fff; border-top:1px solid #f2f1ee; padding-bottom:20px; padding-top:0px" bgcolor="#fff" align="center">
+          <p style="margin-bottom:0; font-family:Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; padding:20px 0 0 0; line-height:22px; margin:0; color:#333; font-size:15px">
+            L'équipe du <a href="{{ url('homepage') }}" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#e31d25; text-decoration:none; font-family:Helvetica, Arial, sans-serif">garopi</a></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; padding:20px 30px 30px 30px; color:#a1a1a1">
+          <p style="font-family:Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#a1a1a1; padding:20px 0 0 0; line-height:22px; margin:0; padding-top:0px; font-size:13px; margin-bottom:0px">
+            Tu acceptes de recevoir des e-mails de notification de la part de l'équipe du garopi.
+          </p>
+          <p style="font-family:Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#a1a1a1; padding:20px 0 0 0; line-height:22px; margin:0; padding-top:0px; font-size:13px; margin-bottom:0px">
+            Clique sur le lien suivant pour gérer tes notifications :
+            <a href="{{ url('homepage') }}" style="-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; color:#e31d25; text-decoration:none; font-family:Helvetica, Arial, sans-serif">
+              gérer mes notifications
+            </a>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </center>
+
+  <style>a:visited {color:#e31d25;text-decoration:none;font-family:Helvetica, Arial, sans-serif}
+    a:link {color:#e31d25;text-decoration:none;font-family:Helvetica, Arial, sans-serif}
+    h2 a:visited {color:#000}
+    h3 a:visited {color:#000}</style>
+  </body>
+  </html>
+{% endblock %}

@@ -290,3 +290,10 @@ parameters:
             bind_dn: %bind_dn%
             password: %ldap_password%
             base_dn:  ou=people,dc=campus,dc=ecp,dc=fr
+
+    new_article:
+        email:
+            template: AppBundle:Article:newArticleEmail.txt.twig
+            from_email:
+                address: garopi@my.ecp.fr
+                sender_name: "\\\\_G< • Le Garopi"
