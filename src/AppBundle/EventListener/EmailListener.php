@@ -97,7 +97,17 @@ class EmailListener implements EventSubscriberInterface
      */
     public function sendNewArticleMessage(ArticleEvent $articleEvent)
     {
-        $url = $this->router->generate('app_article_show', array('slug' => $articleEvent->getArticle()->getSlug()), true);
+        $url = $this->router->generate(
+            'app_article_show',
+            array(
+                'slug' => $articleEvent->getArticle()->getSlug(),
+                'utm_source' => 'email',
+                'utm_medium' => 'email',
+                'utm_term' => $articleEvent->getArticle()->getSlug(),
+                'utm_campaign' => 'nouvel_article_publie',
+            ),
+            true
+        );
         $context = array(
             'article'   => $articleEvent->getArticle(),
             'url'       => $url
