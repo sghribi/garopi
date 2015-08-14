@@ -23,6 +23,7 @@ class ArticleRepository extends EntityRepository
             ->where('am.media IS NOT NULL')
             ->andWhere('a.published = true')
             ->groupBy('a.id')
+            ->orderBy('a.createdAt', 'DESC')
             ->setMaxResults($nb);
 
         return $qb->getQuery()->getResult();
@@ -56,7 +57,8 @@ class ArticleRepository extends EntityRepository
             ->leftJoin('a.medias', 'am')
             ->where('a.category = :category')
             ->andWhere('a.published = true')
-            ->setParameter('category', $category);
+            ->setParameter('category', $category)
+            ->orderBy('a.createdAt', 'DESC');
 
         return $qb;
     }
@@ -68,6 +70,7 @@ class ArticleRepository extends EntityRepository
             ->where('a.category = :category')
             ->andWhere('a.published = true')
             ->setParameter('category', $category)
+            ->orderBy('a.createdAt', 'DESC')
             ->setMaxResults($nb);
 
         return $qb->getQuery()->getResult();
