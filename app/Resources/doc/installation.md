@@ -117,7 +117,7 @@ GRANT ALL ON DATABASE garopi TO garopi;
 
 ### Certificats CACert et cURL
 
-Il faut s'assurer d'avoir les certificats CACert sur sa machine et que cURL utilisé par des bundles de MyECP soit bien configuré pour les utiliser.
+Il faut s'assurer d'avoir les certificats CACert sur sa machine et que cURL soit bien configuré pour les utiliser.
 
 Installer ces certificats avec :
 
