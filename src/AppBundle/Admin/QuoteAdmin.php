@@ -9,12 +9,12 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
 /**
- * Class HoroscopeAdmin
+ * Class QuoteAdmin
  */
-class HoroscopeAdmin extends Admin
+class QuoteAdmin extends Admin
 {
-    protected $baseRouteName = 'sonata_horoscope';
-    protected $baseRoutePattern = 'horoscopes';
+    protected $baseRouteName = 'sonata_quote';
+    protected $baseRoutePattern = 'quotes';
 
     /**
      * @param DatagridMapper $datagridMapper
@@ -23,7 +23,6 @@ class HoroscopeAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('letter')
             ->add('content')
             ->add('authorName')
         ;
@@ -35,7 +34,6 @@ class HoroscopeAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('letter')
             ->add('content', null, array('editable' => true))
             ->add('authorName', null, array('editable' => true))
             ->add('createdAt')
@@ -55,7 +53,6 @@ class HoroscopeAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('letter')
             ->add('content')
             ->add('authorName')
         ;
@@ -67,7 +64,6 @@ class HoroscopeAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('letter')
             ->add('content')
             ->add('authorName')
             ->add('createdAt')

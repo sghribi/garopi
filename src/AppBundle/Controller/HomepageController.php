@@ -24,6 +24,7 @@ class HomepageController extends Controller
         $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesWithCover();
         $last3Articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticles(3);
         $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
+        $quote = $this->getDoctrine()->getRepository('AppBundle:Quote')->getOneRandomQuote();
 
         //@TODO: can be optimised...
         $articlesByCategory = array();
@@ -39,6 +40,7 @@ class HomepageController extends Controller
             'last3Articles' => $last3Articles,
             'articlesByCategory' => $articlesByCategory,
             'horoscopes' => $horoscopes,
+            'quote' => $quote,
         );
     }
 

@@ -104,6 +104,22 @@
     <div class="aside">
       <div class="module-wrapper">
 
+        {# Quote #}
+        {% if quote %}
+          <div class="module quote">
+            {% if is_granted('ROLE_ADMIN') %}
+              <div class="pull-right"><a href="{{ path('sonata_quote_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
+            {% endif %}
+            <h3><i class="fa fa-fw fa-quote-left"></i>&nbsp;Citation&nbsp;<i class="fa fa-fw fa-quote-left"></i></h3>
+            <hr/>
+
+            <blockquote>
+              <p>{{ quote.content }}</p>
+              <footer>Signé, <cite title="Source Title">{{ quote.authorName }}</cite></footer>
+            </blockquote>
+          </div>
+        {% endif %}
+
         {# Horoscope #}
         <div class="module horoscope">
           {% if is_granted('ROLE_ADMIN') %}

@@ -103,8 +103,17 @@ services:
     sonata.admin.horoscope:
         class: AppBundle\Admin\HoroscopeAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Horoscopes", label: "Horoscopes" }
+            - { name: sonata.admin, manager_type: orm, group: "Citations", label: "Horoscope" }
         arguments:
             - ~
             - AppBundle\Entity\Horoscope
+            - ~
+
+    sonata.admin.quote:
+        class: AppBundle\Admin\QuoteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Citations", label: "Quote" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Quote
             - ~

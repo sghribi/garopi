@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
- * Horoscope
+ * Quote
  *
- * @ORM\Table(name="horoscope")
- * @ORM\Entity
+ * @ORM\Table(name="quote")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\QuoteRepository")
  */
-class Horoscope
+class Quote
 {
     use TimestampableEntity;
 
@@ -27,13 +27,6 @@ class Horoscope
     /**
      * @var string
      *
-     * @ORM\Column(name="letter", type="string", length=1, unique=true)
-     */
-    protected $letter;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="content", type="text")
      */
     protected $content;
@@ -44,7 +37,6 @@ class Horoscope
      * @ORM\Column(name="authorName", type="string", length=255)
      */
     protected $authorName;
-
 
     /**
      * Get id
@@ -60,7 +52,8 @@ class Horoscope
      * Set content
      *
      * @param string $content
-     * @return Horoscope
+     *
+     * @return Quote
      */
     public function setContent($content)
     {
@@ -83,7 +76,8 @@ class Horoscope
      * Set authorName
      *
      * @param string $authorName
-     * @return Horoscope
+     *
+     * @return Quote
      */
     public function setAuthorName($authorName)
     {
@@ -100,28 +94,5 @@ class Horoscope
     public function getAuthorName()
     {
         return $this->authorName;
-    }
-
-    /**
-     * Set letter
-     *
-     * @param string $letter
-     * @return Horoscope
-     */
-    public function setLetter($letter)
-    {
-        $this->letter = $letter;
-
-        return $this;
-    }
-
-    /**
-     * Get letter
-     *
-     * @return string 
-     */
-    public function getLetter()
-    {
-        return $this->letter;
     }
 }

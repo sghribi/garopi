@@ -6,6 +6,8 @@ use AppBundle\Entity\Article;
 use AppBundle\Entity\ArticleCategory;
 use AppBundle\Entity\ArticleMedia;
 use AppBundle\Entity\Comment;
+use AppBundle\Entity\Quote;
+use Garopi\LegacyWrapperBundle\Entity\AdminQuotations;
 use Garopi\LegacyWrapperBundle\Entity\Articles;
 use Garopi\LegacyWrapperBundle\Entity\Comments;
 use Sonata\MediaBundle\Tests\Entity\Media;
@@ -32,6 +34,7 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
     {
         $this->loadArticlesAndCategoriesFromOldDatabase();
         $this->loadCommentsFromOldDatabase();
+        $this->loadQuotesFromOldDatabase();
     }
 
     protected function loadArticlesAndCategoriesFromOldDatabase()
@@ -148,6 +151,33 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
             $comment->setUpdatedAt($updatedAt);
 
             $em->persist($comment);
+            $em->flush();
+        }
+    }
+
+    protected function loadQuotesFromOldDatabase()
+    {
+        $em = $this->getContainer()->get('doctrine')->getManager('default');
+        $emLegacy = $this->getContainer()->get('doctrine')->getManager('legacy');
+
+        $oldQuotes = $emLegacy->getRepository('GaropiLegacyWrapperBundle:AdminQuotations')->findAll();
+
+        /** @var AdminQuotations $oldQuote */
+        foreach ($oldQuotes as $oldQuote) {
+
+            $content = $oldQuote->getContent();
+            $authorName = $oldQuote->getAuthor();
+            $createdAt = new \DateTime($oldQuote->getCreatedAt());
+            $updatedAt = new \DateTime($oldQuote->getUpdatedAt());
+
+            $quote = new Quote();
+
+            $quote->setAuthorName($authorName);
+            $quote->setContent($content);
+            $quote->setCreatedAt($createdAt);
+            $quote->setUpdatedAt($updatedAt);
+
+            $em->persist($quote);
             $em->flush();
         }
     }
