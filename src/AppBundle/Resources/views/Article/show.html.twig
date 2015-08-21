@@ -80,7 +80,7 @@
               <div class="comment-wrapper">
                 <div class="content">
                   <blockquote>
-                    <p>{{ comment.content }}</p>
+                    <p>{{ comment.content|converturls }}</p>
                     <footer>
                       <cite title="{{ comment.author }}">
                         <a href="https://my.ecp.fr/m/{{ comment.author.username }}" target="_blank">{{ comment.author.firstName }} {{ comment.author.lastName }}</a>
