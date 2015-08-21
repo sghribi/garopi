@@ -162,8 +162,10 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
             $bbtext = preg_replace($match, $replacement, $bbtext);
         }
 
-        return $this->nl2p($bbtext);
-        return $this->nl2p($bbtext);
+        // Replace \n / \r by <p></p>
+        $nl2pText = $this->nl2p($bbtext);
+
+        return str_replace("<p>&nbsp;</p>", "<p></p>", $nl2pText);
     }
 
     /**
