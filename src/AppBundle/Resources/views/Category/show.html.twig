@@ -36,9 +36,21 @@
         </div>
         <div class="media-body">
           <a href="{{ path('app_article_show', {slug: article.slug}) }}">
-            <h3 class="media-heading">{{ article.title }}<br/><small><i>Par <strong>{{ article.authorName }}</strong>, le {{ article.createdAt|date }}</i></small></h3>
+            <h3 class="media-heading">{{ article.title }}
+              <br/>
+              <small>
+                <ul class="list-inline">
+                  <li><i class="fa fa-fw fa-tags"></i> {{ article.category.name }}</li>
+                  <li><i class="fa fa-fw fa-user"></i> {{ article.authorName }}</li>
+                  <li><i class="fa fa-fw fa-clock-o"></i> {{ article.createdAt|date('d/m/Y \\à H:i') }}</li>
+                  <li><i class="fa fa-fw fa-eye"></i> {{ article.nbReadings }}</li>
+                  <li><i class="fa fa-fw fa-comments"></i> {{ article.nbComments }}</li>
+                </ul>
+              </small>
+            </h3>
           </a>
           {{ article.summary }}
+
         </div>
       </div>
     {% endfor %}
