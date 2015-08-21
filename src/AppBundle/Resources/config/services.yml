@@ -19,6 +19,11 @@ services:
     app.security.user_authentication:
         class: AppBundle\Service\UserAuthenticationService
         arguments:
+            - @app.service.user
+
+    app.service.user:
+        class: AppBundle\Service\UserService
+        arguments:
             - @doctrine.orm.default_entity_manager
             - @app.service.ldap
 

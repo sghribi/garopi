@@ -14,20 +14,18 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
  */
 class UserAuthenticationService implements UserProviderInterface
 {
-    /** @var EntityManager */
-    protected $em;
-
-    /** @var LdapService */
-    protected $ldap;
+    /**
+     * @var UserService
+     */
+    private $userService;
 
     /**
      * @param EntityManager $em
      * @param LdapService   $ldap
      */
-    public function __construct(EntityManager $em, LdapService $ldap)
+    public function __construct(UserService $userService)
     {
-        $this->em = $em;
-        $this->ldap = $ldap;
+        $this->userService = $userService;
     }
 
     /**
@@ -35,34 +33,7 @@ class UserAuthenticationService implements UserProviderInterface
      */
     public function loadUserByUsername($login)
     {
-        // On récupère l'objer Member à partir du CtiUid
-        $user = $this->em->getRepository('AppBundle:User')->findOneBy(array('username' => $login));
-
-
-        // S'il l'utilisateur n'existe pas en BDD : on le crée
-        if (!$user) {
-            $user = new User();
-            $user->setUsername($login);
-            $user->setEnabled(true);
-        }
-
-        //
-        // On met à jour les données depuis le LDAP
-        try {
-            $datas = $this->ldap->getDataByUid($login);
-            $user->setFirstName($datas['givenname'][0]);
-            $user->setLastName($datas['sn'][0]);
-            $user->setEmail($datas['mail'][0]);
-            $user->setPlainPassword(md5(uniqid(rand(), true)));
-            $user->setPhoto(base64_encode($datas['jpegphoto'][0]));
-        } catch (\Exception $e) {
-            throw new UsernameNotFoundException(sprintf('Impossible de trouver %s dans le LDAP', $login));
-        }
-
-        $this->em->persist($user);
-        $this->em->flush();
-
-        return $user;
+        return $this->userService->createOrUpdateUserByLogin($login);
     }
 
     /**
@@ -76,7 +47,7 @@ class UserAuthenticationService implements UserProviderInterface
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $class));
         }
 
-        return $this->em->getRepository('AppBundle:User')->find($user->getId());
+        return $this->userService->getUserByLogin($user->getUsername());
     }
 
     /**
