@@ -5,11 +5,15 @@ namespace AppBundle\Command;
 use AppBundle\Entity\Article;
 use AppBundle\Entity\ArticleCategory;
 use AppBundle\Entity\ArticleMedia;
+use AppBundle\Entity\Comment;
 use Garopi\LegacyWrapperBundle\Entity\Articles;
+use Garopi\LegacyWrapperBundle\Entity\Comments;
+use Sonata\MediaBundle\Tests\Entity\Media;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class MigrateOldDatabaseCommand
@@ -26,14 +30,14 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->loadDataFromOldDatabase();
+        $this->loadArticlesAndCategoriesFromOldDatabase();
+        $this->loadCommentsFromOldDatabase();
     }
 
-    protected function loadDataFromOldDatabase()
+    protected function loadArticlesAndCategoriesFromOldDatabase()
     {
         $em = $this->getContainer()->get('doctrine')->getManager('default');
         $emLegacy = $this->getContainer()->get('doctrine')->getManager('legacy');
-
 
         $categories = array();
         $oldCategories = $emLegacy->getRepository('GaropiLegacyWrapperBundle:AdminCategories')->findAll();
@@ -66,8 +70,10 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
                 $path = $this->getContainer()->get('kernel')->getRootDir() . '/../legacy/photos/000/000/' . sprintf("%'.03d", $oldArticle->getId()) . '/original/';
                 $finder->files()->in($path);
 
+                /** @var File $file */
                 foreach ($finder as $file) {
                     try {
+                        /** @var Media $media */
                         $media = $mediaManager->create();
                         $media->setBinaryContent($file->getRealPath());
                         $media->setDescription($summary);
@@ -98,6 +104,50 @@ class MigrateOldDatabaseCommand extends ContainerAwareCommand
             $category->addArticle($article);
 
             $em->persist($article);
+            $em->flush();
+        }
+    }
+
+    protected function loadCommentsFromOldDatabase()
+    {
+        $em = $this->getContainer()->get('doctrine')->getManager('default');
+        $emLegacy = $this->getContainer()->get('doctrine')->getManager('legacy');
+        $userManager = $this->getContainer()->get('app.service.user');
+
+        $oldComments = $emLegacy->getRepository('GaropiLegacyWrapperBundle:Comments')->findAll();
+
+        /** @var Comments $oldComment */
+        foreach ($oldComments as $oldComment) {
+
+            $authorLogin = $oldComment->getAuthor();
+            $content = $oldComment->getContent();
+            $articleId = $oldComment->getArticleId();
+            $createdAt = new \DateTime($oldComment->getCreatedAt());
+            $updatedAt = new \DateTime($oldComment->getUpdatedAt());
+
+            $comment = new Comment();
+
+            $article = $em->getRepository('AppBundle:Article')->findOneBy(array('legacyId' => $articleId));
+            if (!$article) {
+                continue;
+            }
+
+            $author = $userManager->createOrUpdateUserByLogin($authorLogin, true);
+            if (!$author) {
+                continue;
+            }
+            // Hack to update users that was loaded with data fixtures
+            if (!$author->getPhoto()) {
+                $userManager->createOrUpdateUserByLogin($authorLogin, false);
+            }
+
+            $article->addComment($comment);
+            $comment->setAuthor($author);
+            $comment->setContent($content);
+            $comment->setCreatedAt($createdAt);
+            $comment->setUpdatedAt($updatedAt);
+
+            $em->persist($comment);
             $em->flush();
         }
     }

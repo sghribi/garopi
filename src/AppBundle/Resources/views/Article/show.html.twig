@@ -73,7 +73,9 @@
           {% for comment in article.comments|reverse %}
             <li class="list-group-item comment {% if highlight == comment %}active{% endif %}" id="comment-{{ comment.id }}">
               <div class="photo-wrapper">
-                <img alt="{{ comment.author }}"  src="data:image/jpg;base64,{{ comment.author.photo }}" class="img-thumbnail" />
+                <a href="https://my.ecp.fr/m/{{ comment.author.username }}" target="_blank">
+                  <img alt="{{ comment.author }}"  src="data:image/jpg;base64,{{ comment.author.photo }}" class="img-thumbnail" />
+                </a>
               </div>
               <div class="comment-wrapper">
                 <div class="content">

@@ -30,11 +30,11 @@ Garopi\LegacyWrapperBundle\Entity\Comments:
             unsigned: false
             column: article_id
         createdAt:
-            type: datetime
+            type: string
             nullable: false
             column: created_at
         updatedAt:
-            type: datetime
+            type: string
             nullable: false
             column: updated_at
     lifecycleCallbacks: {  }

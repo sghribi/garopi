@@ -30,7 +30,7 @@ class LdapService
         }
 
         // Mode débug en mode CLI
-        ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
+        // ldap_set_option(NULL, LDAP_OPT_DEBUG_LEVEL, 7);
 
         $this->ldapConnection = ldap_connect($host);
         ldap_bind($this->ldapConnection, $this->config['myecp']['bind_dn'], $this->config['myecp']['password']);
