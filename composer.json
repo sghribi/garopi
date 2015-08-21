@@ -47,7 +47,8 @@
         "egeloen/ckeditor-bundle": "^3.0",
         "smashingboxes/OwlCarousel2": "2.0.0",
         "knplabs/knp-paginator-bundle": "^2.4",
-        "tilleuls/ckeditor-sonata-media-bundle": "^1.0"
+        "tilleuls/ckeditor-sonata-media-bundle": "^1.0",
+        "liip/url-auto-converter-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

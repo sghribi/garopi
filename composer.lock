@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c571de6896193fab31326146b4133ecf",
+    "hash": "3eaa828a3daeacd4234845f696736841",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -866,7 +866,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/1022552099a055f05312289c89465c3a84f37dce",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/238aaa5fa04b5755a9957715e269d542cd0f8e39",
                 "reference": "1022552099a055f05312289c89465c3a84f37dce",
                 "shasum": ""
             },
@@ -1099,7 +1099,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/087f738cf8f984807efa44e6405d28b5f6009d2f",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/27edc388296a3cffc7c30942a7613abb4998701c",
                 "reference": "b62316b4cf489495b4a84059bafc9e43a6a4d2bc",
                 "shasum": ""
             },
@@ -1538,7 +1538,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/336d9cd8ba0c5a462b3e70be144a7bef5377b219",
                 "reference": "c2e68acfb2b5786cd455fd9ae3b6d7f255f12646",
                 "shasum": ""
             },
@@ -1912,7 +1912,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jasny/bootstrap/zipball/843c8241e7a9a155bee1c1d4b01286ba3dde15c2",
+                "url": "https://api.github.com/repos/jasny/bootstrap/zipball/2dc9cb49179a0aa779cb6b96663b5ae0ff3fcef2",
                 "reference": "f96d55965a6c3a29014c940ae3f52aeeda1920f7",
                 "shasum": ""
             },
@@ -2679,6 +2679,58 @@
             "time": "2015-06-25 17:26:56"
         },
         {
+            "name": "liip/url-auto-converter-bundle",
+            "version": "dev-master",
+            "target-dir": "Liip/UrlAutoConverterBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/liip/LiipUrlAutoConverterBundle.git",
+                "reference": "74e123c0aa3733207c89b1562273988ca9cee8d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/liip/LiipUrlAutoConverterBundle/zipball/74e123c0aa3733207c89b1562273988ca9cee8d4",
+                "reference": "74e123c0aa3733207c89b1562273988ca9cee8d4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/framework-bundle": "~2.0",
+                "twig/twig": "1.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Liip\\UrlAutoConverterBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/liip/LiipThemeBundle/contributors"
+                },
+                {
+                    "name": "Liip AG",
+                    "homepage": "http://www.liip.ch/"
+                }
+            ],
+            "description": "This bundle adds a Twig Extension with a filter for automatically converting urls and emails in a string to html links",
+            "homepage": "http://liip.ch",
+            "keywords": [
+                "url"
+            ],
+            "time": "2014-11-27 11:02:07"
+        },
+        {
             "name": "lipis/bootstrap-social",
             "version": "4.9.0",
             "dist": {
@@ -3409,7 +3461,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a0801f1a9af944a2164530d4be43aade53ab6a64",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/6a3b6c01c78406ef18359c7ac57891e5de145dd1",
                 "reference": "65a726a95720af7500af72f154c038875b60bbea",
                 "shasum": ""
             },
@@ -3622,7 +3674,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/06a46292f2651fd5228ec85010944057c6c002d0",
+                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/3e71fd4aea3fc1606eaca78a6540b7c67731cbc0",
                 "reference": "edd5f24121455b5a91d801b1bd70a699a5d45e64",
                 "shasum": ""
             },
@@ -3688,7 +3740,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/d5e0aea3998d6e94de01c475db972dca67786c28",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/69217cd11f1771137d3a3d7bfd4c115ed82919f0",
                 "reference": "747d4660a71f4f3133a08d118da0761c43187fab",
                 "shasum": ""
             },
@@ -3863,7 +3915,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/4fcec62fab9487c5479519f5d663c3d1d588a10f",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/a883b10c09d136de617c1e53c2782648909a8c06",
                 "reference": "2cd709777b571f7f7e294ad4575f38955e6da963",
                 "shasum": ""
             },
@@ -4119,7 +4171,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/d6cb0062cc4f77393959607c2d95137d5f71c57d",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/d7a0c9a98485c114dd0770735647d41499409d97",
                 "reference": "3f3bb802e09687bdff9b5a2d80f1e47daed39fc3",
                 "shasum": ""
             },
@@ -4287,7 +4339,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/2ff8473e33e224af87dc00d48a552a35a75115af",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/7b3144572617b0555f9a443317dbc2f9cf5b524e",
                 "reference": "2ff8473e33e224af87dc00d48a552a35a75115af",
                 "shasum": ""
             },
@@ -5067,7 +5119,8 @@
         "sonata-project/classification-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/intl-bundle": 20,
-        "besimple/sso-auth-bundle": 20
+        "besimple/sso-auth-bundle": 20,
+        "liip/url-auto-converter-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

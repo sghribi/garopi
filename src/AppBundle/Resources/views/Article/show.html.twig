@@ -47,7 +47,7 @@
 
           <div class="content">
             <p class="lead">{{ article.summary }}</p>
-            {{ article.content|raw }}
+            {{ article.content|raw|converturls  }}
           </div>
           <em class="author">{{ article.authorName }}</em>
         </div>

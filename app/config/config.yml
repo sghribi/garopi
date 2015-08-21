@@ -282,6 +282,12 @@ ivory_ck_editor:
                 provider: sonata.media.provider.image
                 context: default # Optional, to upload in a custom context
 
+# Autolink in text
+liip_url_auto_converter:
+    linkclass:
+    target: _blank
+    debugmode: false
+
 parameters:
     ldap:
         myecp:

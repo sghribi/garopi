@@ -41,6 +41,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
             new Garopi\LegacyWrapperBundle\GaropiLegacyWrapperBundle(),
+            new Liip\UrlAutoConverterBundle\LiipUrlAutoConverterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
