@@ -28,7 +28,6 @@
 
     > p {
       padding-bottom: 24px;
-      padding-right: 40px;
       margin-bottom: 0;
       text-align: justify;
     }
@@ -36,17 +35,20 @@
 
   .article-wrapper {
     .make-row();
-    margin-top: 20px;
 
+    .page-header {
+      padding-left: 30px;
+      margin-top: 20px;
+    }
 
     .main {
-      padding-left: 50px !important;
-      padding-right: 50px !important;
-      .make-sm-column(8, 0);
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+      .make-sm-column(9, 0);
     }
 
     .aside {
-      .make-sm-column(4, 0);
+      .make-sm-column(3, 0);
     }
 
     .author {

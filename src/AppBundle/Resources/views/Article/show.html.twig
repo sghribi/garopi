@@ -27,12 +27,13 @@
       </ul>
 
       <div class="article-wrapper">
-        <div class="main">
 
-          <div class="page-header">
-            <h2>{{ article.title }}</h2>
-            <p>Par <em>{{ article.authorName }}</em></p>
-          </div>
+        <div class="page-header">
+          <h2>{{ article.title }}</h2>
+          <p>Par <em>{{ article.authorName }}</em></p>
+        </div>
+
+        <div class="main">
 
           <div id="article-carousel" class="owl-carousel owl-theme">
             {% for media in article.medias %}
@@ -47,12 +48,27 @@
 
           <div class="content">
             <p class="lead">{{ article.summary }}</p>
-            {{ article.content|raw|converturls  }}
+            {{ article.content|raw }}
           </div>
           <em class="author">{{ article.authorName }}</em>
         </div>
         <div class="aside">
-
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Test
+            </div>
+            <div class="panel-body">
+              Wesh
+            </div>
+            <!-- List group -->
+            <ul class="list-group">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Morbi leo risus</li>
+              <li class="list-group-item">Porta ac consectetur ac</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+          </div>
         </div>
       </div>
 
