@@ -29,9 +29,10 @@
           <div class="row">
             {% if last3Articles|length %}
               <div class="col-sm-6 alaune-main">
-                {% set firstArticle = last3Articles|first %}
-                <h2><i class="fa fa-fw fa-star"></i> À la une</h2>
-                <hr/>
+                <div class="invert">
+                  {% set firstArticle = last3Articles|first %}
+                  <h2><i class="fa fa-fw fa-star"></i> À la une</h2>
+                </div>
                 <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}">
                   {% if firstArticle.medias|length %}
                     <img src="{% path (firstArticle.medias|first).media, 'small' %}" class="img-responsive" alt="{{ firstArticle.title }}">
@@ -71,14 +72,15 @@
         {# A block by non empty category #}
         {% for category in categories if articlesByCategory[category.slug]|length %}
           <div class="block block-category">
-            <a class="pull-right text-muted" href="{{ path('app_category_show', {slug: category.slug}) }}"><i class="fa fa-fw fa-plus-square"></i>Voir tous les articles</a>
-            <h2 class="category-title">
-              {% if category.fontawesomeClass %}<i class="fa fa-fw fa-{{ category.fontawesomeClass }} hidden-xs"></i> {% endif %}
-              {{ category.name }}
-              <br/>
-              <small>{{ category.description }}</small>
-            </h2>
-            <hr/>
+            <div class="invert">
+              <a class="pull-right text-muted" href="{{ path('app_category_show', {slug: category.slug}) }}"><i class="fa fa-fw fa-plus-square"></i>Voir tous les articles</a>
+              <h2 class="category-title">
+                {% if category.fontawesomeClass %}<i class="fa fa-fw fa-{{ category.fontawesomeClass }} hidden-xs"></i> {% endif %}
+                {{ category.name }}
+                <br/>
+                <small>{{ category.description }}</small>
+              </h2>
+            </div>
             {% for article in articlesByCategory[category.slug] %}
               <div class="article">
                 <a href="{{ path('app_article_show', {slug: article.slug}) }}">
@@ -107,11 +109,12 @@
         {# Quote #}
         {% if quote %}
           <div class="module quote">
-            {% if is_granted('ROLE_ADMIN') %}
-              <div class="pull-right"><a href="{{ path('sonata_quote_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
-            {% endif %}
-            <h3><i class="fa fa-fw fa-quote-left"></i>&nbsp;Citation&nbsp;<i class="fa fa-fw fa-quote-left"></i></h3>
-            <hr/>
+            <div class="invert">
+              {% if is_granted('ROLE_ADMIN') %}
+                <div class="pull-right"><a href="{{ path('sonata_quote_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
+              {% endif %}
+              <h3><i class="fa fa-fw fa-quote-left"></i>&nbsp;Citation&nbsp;<i class="fa fa-fw fa-quote-left"></i></h3>
+            </div>
 
             <blockquote>
               <p>{{ quote.content }}</p>
@@ -122,11 +125,12 @@
 
         {# Horoscope #}
         <div class="module horoscope">
-          {% if is_granted('ROLE_ADMIN') %}
-            <div class="pull-right"><a href="{{ path('sonata_horoscope_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
-          {% endif %}
-          <h3><i class="fa fa-fw fa-diamond"></i>&nbsp;Horoscope&nbsp;<i class="fa fa-fw fa-diamond"></i></h3>
-          <hr/>
+          <div class="invert">
+            {% if is_granted('ROLE_ADMIN') %}
+              <div class="pull-right"><a href="{{ path('sonata_horoscope_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
+            {% endif %}
+            <h3><i class="fa fa-fw fa-diamond"></i>&nbsp;Horoscope&nbsp;<i class="fa fa-fw fa-diamond"></i></h3>
+          </div>
           <div class="horoscopes">
 
             {# @TODO #}
@@ -154,8 +158,9 @@
 
         {# Twitter/Facebook #}
         <div class="module social">
-          <h3><i class="fa fa-fw fa-facebook"></i>&nbsp;Suis-nous&nbsp;<i class="fa fa-fw fa-envelope"></i></h3>
-          <hr/>
+          <div class="invert">
+            <h3><i class="fa fa-fw fa-facebook"></i>&nbsp;Suis-nous&nbsp;<i class="fa fa-fw fa-envelope"></i></h3>
+          </div>
 
           <label class="notify-by-mail text-center">
             <input type="checkbox" {% if app.user.wantsToReceiveMails %}checked{% endif %}>
