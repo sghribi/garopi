@@ -33,20 +33,22 @@
                   {% set firstArticle = last3Articles|first %}
                   <h2><i class="fa fa-fw fa-star"></i> À la une</h2>
                 </div>
-                <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}">
-                  {% if firstArticle.medias|length %}
-                    <img src="{% path (firstArticle.medias|first).media, 'small' %}" class="img-responsive" alt="{{ firstArticle.title }}">
-                  {% else %}
-                    <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=\_G%20%3C%20%E2%80%A2%20Le%20Garopi&w=200&h=100" class="img-responsive" alt="{{ firstArticle.title }}">
-                  {% endif %}
-                  <h3>{{ firstArticle.title }}</h3>
-                </a>
-                <p>{{ firstArticle.summary }}</p>
-                <p class="interactions">
-                  <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ firstArticle.nbComments }}</a>
-                  <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>{{ firstArticle.nbReadings }}</a>
-                  <a href="{{ path('app_category_show', {slug: firstArticle.category.slug}) }}" class="category"><i class="fa fa-fw fa-tags"></i>{{ firstArticle.category.name }}</a>
-                </p>
+                <div class="alaune-main-border">
+                  <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}">
+                    {% if firstArticle.medias|length %}
+                      <img src="{% path (firstArticle.medias|first).media, 'small' %}" class="img-responsive" alt="{{ firstArticle.title }}">
+                    {% else %}
+                      <img src="https://placeholdit.imgix.net/~text?txtsize=15&txt=\_G%20%3C%20%E2%80%A2%20Le%20Garopi&w=200&h=100" class="img-responsive" alt="{{ firstArticle.title }}">
+                    {% endif %}
+                    <h3>{{ firstArticle.title }}</h3>
+                  </a>
+                  <p>{{ firstArticle.summary }}</p>
+                  <p class="interactions">
+                    <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}#comments" class="comments" title="Réagir !"><i class="fa fa-fw fa-comments"></i>{{ firstArticle.nbComments }}</a>
+                    <a href="{{ path('app_article_show', {slug: firstArticle.slug}) }}" class="views" title="Vues"><i class="fa fa-fw fa-eye"></i>{{ firstArticle.nbReadings }}</a>
+                    <a href="{{ path('app_category_show', {slug: firstArticle.category.slug}) }}" class="category"><i class="fa fa-fw fa-tags"></i>{{ firstArticle.category.name }}</a>
+                  </p>
+                </div>
               </div>
               <div class="col-sm-6 alamune-aside">
                 {% for article in last3Articles[1:] %}

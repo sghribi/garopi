@@ -4,7 +4,7 @@
   margin-right: 0;
 
   .invert {
-    background: #444;
+    background: #333;
     margin: -10px;
     padding: 10px;
     // Re-add the margin at the bottom
@@ -42,7 +42,7 @@
       }
 
       .invert {
-        background: slategray;
+        background: darken(@base_background, 15%);
       }
     }
 
@@ -106,6 +106,12 @@
         img {
           margin: auto;
         }
+
+        .alaune-main-border {
+          margin-right: -10px;
+          padding-right: 10px;
+          border-right: 1px solid #ddd;
+        }
       }
 
       .interactions {
@@ -130,10 +136,6 @@
             margin-left: 30px;
           }
         }
-      }
-
-      .invert {
-        background-color: #444;
       }
     }
   }
