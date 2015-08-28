@@ -3,6 +3,18 @@
   margin-left: 0;
   margin-right: 0;
 
+  .invert {
+    background: #333;
+    margin: -10px;
+    padding: 10px;
+    // Re-add the margin at the bottom
+    margin-bottom: 10px;
+
+    h2, h3, a {
+      color: #f2f2f2;
+    }
+  }
+
   // Module disposition
   .module-wrapper {
     @media only screen and (min-width: @screen-sm-min) {
@@ -27,6 +39,10 @@
       }
       hr {
         margin: 10px;
+      }
+
+      .invert {
+        background: darken(@base_background, 15%);
       }
     }
 
@@ -89,6 +105,12 @@
         }
         img {
           margin: auto;
+        }
+
+        .alaune-main-border {
+          margin-right: -10px;
+          padding-right: 10px;
+          border-right: 1px solid #ddd;
         }
       }
 
