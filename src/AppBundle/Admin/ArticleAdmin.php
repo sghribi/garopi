@@ -3,6 +3,7 @@
 namespace AppBundle\Admin;
 
 use AppBundle\Entity\Article;
+use AppBundle\Entity\ArticleMedia;
 use AppBundle\Events;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -112,26 +113,42 @@ class ArticleAdmin extends Admin
         ;
     }
 
-    public function prePersist($object)
-    {
-        /** @var Article $object */
+    /**
+     * @param Article $object
+     */
+    public function prePersist($object) {
+        /** @var ArticleMedia $media */
         foreach ($object->getMedias() as $media) {
             $media->setArticle($object);
         }
+    }
 
+    /**
+     * @param Article $object
+     */
+    public function postPersist($object)
+    {
         if ($object->getPublished() && !$object->getEmailSent()) {
             $object->setEmailSent(true);
             $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
         }
     }
 
-    public function preUpdate($object)
-    {
-        /** @var Article $object */
+    /**
+     * @param Article $object
+     */
+    public function preUpdate($object) {
+        /** @var ArticleMedia $media */
         foreach ($object->getMedias() as $media) {
             $media->setArticle($object);
         }
+    }
 
+    /**
+     * @param Article $object
+     */
+    public function postUpdate($object)
+    {
         if ($object->getPublished() && !$object->getEmailSent()) {
             $object->setEmailSent(true);
             $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
