@@ -24,7 +24,7 @@ class ArticleController extends Controller
      */
     public function showLegacyArticleAction(Article $article)
     {
-        $this->addFlash('notice', sprintf('La nouvelle URL de cette article est : %s', $this->generateUrl('app_article_show', array('slug' => $article->getSlug()), true)));
+        $this->addFlash('notice', sprintf('La nouvelle URL de cet article est : %s', $this->generateUrl('app_article_show', array('slug' => $article->getSlug()), true)));
 
         return $this->redirectToRoute('app_article_show', array('slug' => $article->getSlug()), Response::HTTP_MOVED_PERMANENTLY);
     }
