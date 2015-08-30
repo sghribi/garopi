@@ -30,6 +30,7 @@
             {% if last3Articles|length %}
               <div class="col-sm-6 alaune-main">
                 <div class="invert">
+                  <a class="pull-right text-muted" href="{{ path('app_category_showallarticles') }}"><i class="fa fa-fw fa-plus-square"></i>Tout</a>
                   {% set firstArticle = last3Articles|first %}
                   <h2><i class="fa fa-fw fa-star"></i> À la une</h2>
                 </div>

@@ -1,0 +1,64 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+
+  <ol class="breadcrumb">
+    <li><a href="{{ path('homepage') }}"><i class="fa fa-fw fa-home"></i> Accueil</a></li>
+    <li class="active"><i class="fa fa-newspaper-o"></i> Tous les articles</li>
+  </ol>
+
+  <div class="well category">
+    {# total items count #}
+    <div class="jumbotron text-center">
+      {% if articles.getTotalItemCount %}
+        <h2>Tous les articles : {{ articles.getTotalItemCount }} article{% if articles.getTotalItemCount > 1 %}s{% endif %}</h2>
+        <p>L'intégralité du Garopi, pour le meilleur comme pour le pire</p>
+      {% else %}
+        <h1>:(</h1>
+        <br/>
+        <h2>Aucun article pour le moment</h2>
+        <p><a href="{{ path('homepage') }}"><i class="fa fa-fw fa-chevron-left"></i> Retour à l'accueil</a></p>
+      {% endif %}
+    </div>
+
+    {% for article in articles %}
+      <div class="media">
+        <div class="media-left media-middle">
+            <a href="{{ path('app_article_show', {slug: article.slug}) }}">
+              {% if article.medias|length %}
+                <img class="media-object" src="{% path (article.medias|first).media, 'small' %}" alt="{{ article.title }}">
+              {% else %}
+                <img class="media-object" src="https://placeholdit.imgix.net/~text?txtsize=15&txt=\_G%20%3C%20%E2%80%A2%20Le%20Garopi&w=200&h=100" />
+              {% endif %}
+            </a>
+        </div>
+        <div class="media-body">
+          <a href="{{ path('app_article_show', {slug: article.slug}) }}">
+            <h3 class="media-heading">{{ article.title }}
+              <br/>
+              <small>
+                <ul class="list-inline">
+                  <li><i class="fa fa-fw fa-tags"></i> {{ article.category.name }}</li>
+                  <li><i class="fa fa-fw fa-user"></i> {{ article.authorName }}</li>
+                  <li><i class="fa fa-fw fa-clock-o"></i> {{ article.createdAt|date('d/m/Y \\à H:i') }}</li>
+                  <li><i class="fa fa-fw fa-eye"></i> {{ article.nbReadings }}</li>
+                  <li><i class="fa fa-fw fa-comments"></i> {{ article.nbComments }}</li>
+                </ul>
+              </small>
+            </h3>
+          </a>
+          {{ article.summary }}
+        </div>
+      </div>
+    {% endfor %}
+
+    {# display navigation #}
+    <div class="navigation">
+      {{ knp_pagination_render(articles) }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
