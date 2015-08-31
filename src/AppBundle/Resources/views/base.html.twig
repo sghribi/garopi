@@ -44,11 +44,7 @@
   {% include 'AppBundle::flash.html.twig' %}
 
   {# Defining current cateogry #}
-  {% if article is defined %}
-    {% set currentCategory = article.category %}
-  {% elseif category is defined %}
-    {% set currentCategory = category %}
-  {% else %}
+  {% if currentCategory is not defined %}
     {% set currentCategory = null %}
   {% endif %}
 
