@@ -14,7 +14,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           {% for category in categories %}
-            <li class="">
+            <li {%- if category == currentCategory %} class="active" {%- endif -%}>
               <a href="{{ path('app_category_show', {slug: category.slug}) }}">{% if category.fontawesomeClass %}<i class="fa fa-{{ category.fontawesomeClass }} hidden-sm"></i> {% endif %}{{ category.name }}</a>
             </li>
           {% endfor %}

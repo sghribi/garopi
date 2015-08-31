@@ -42,7 +42,20 @@
   <body class="{{ body_class|default('') }}">
   {% include 'AppBundle::socials.html.twig' %}
   {% include 'AppBundle::flash.html.twig' %}
-  {{ render(controller('AppBundle:Homepage:menu')) }}
+
+  {# Defining current cateogry #}
+  {% if article is defined %}
+    {% set currentCategory = article.category %}
+  {% elseif category is defined %}
+    {% set currentCategory = category %}
+  {% else %}
+    {% set currentCategory = null %}
+  {% endif %}
+
+  {{ render(controller(
+    'AppBundle:Homepage:menu',
+    { 'currentCategory': currentCategory }
+  )) }}
   {% block body %}{% endblock %}
   {% block javascripts %}{% endblock %}
   {% include 'AppBundle::footer.html.twig' %}
