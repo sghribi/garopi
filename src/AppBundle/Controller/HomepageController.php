@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\ArticleCategory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -66,12 +67,13 @@ class HomepageController extends Controller
     /**
      * @Template("AppBundle::menu.html.twig")
      */
-    public function menuAction()
+    public function menuAction(ArticleCategory $currentCategory)
     {
         $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
 
         return array(
             'categories' => $categories,
+            'currentCategory' => $currentCategory,
         );
     }
 
