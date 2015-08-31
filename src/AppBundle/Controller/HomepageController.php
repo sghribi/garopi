@@ -67,7 +67,7 @@ class HomepageController extends Controller
     /**
      * @Template("AppBundle::menu.html.twig")
      */
-    public function menuAction(ArticleCategory $currentCategory)
+    public function menuAction(ArticleCategory $currentCategory = null)
     {
         $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
 
