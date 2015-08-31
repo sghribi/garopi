@@ -75,4 +75,17 @@ class ArticleRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function getQbAllArticles()
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.medias', 'am')
+            ->where('a.published = true')
+            ->orderBy('a.createdAt', 'DESC');
+
+        return $qb;
+    }
 }

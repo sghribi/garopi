@@ -14,6 +14,25 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class CategoryController extends Controller
 {
+
+    /**
+     * @Route("/latest")
+     * @Template("AppBundle:Category:showAllArticles.html.twig")
+     */
+    public function showAllArticlesAction(Request $request)
+    {
+        $paginator  = $this->get('knp_paginator');
+        $articles = $paginator->paginate(
+            $this->getDoctrine()->getRepository('AppBundle:Article')->getQbAllArticles(),
+            $request->query->getInt('page', 1),
+            10
+        );
+
+        return array(
+            'articles' => $articles,
+        );
+    }
+
     /**
      * @Route("/categories/{slug}")
      * @Template("AppBundle:Category:show.html.twig")
