@@ -43,19 +43,24 @@
     {% if app.user %}
       {% include 'AppBundle::socials.html.twig' %}
       {% include 'AppBundle::flash.html.twig' %}
+
+      {# Defining current cateogry #}
+      {% if currentCategory is not defined %}
+        {% set currentCategory = null %}
+      {% endif %}
+
+      {{ render(controller(
+        'AppBundle:Homepage:menu',
+        { 'currentCategory': currentCategory }
+      )) }}
     {% endif %}
 
-  {# Defining current cateogry #}
-  {% if currentCategory is not defined %}
-    {% set currentCategory = null %}
-  {% endif %}
+      {% block body %}{% endblock %}
 
-  {{ render(controller(
-    'AppBundle:Homepage:menu',
-    { 'currentCategory': currentCategory }
-  )) }}
-  {% block body %}{% endblock %}
-  {% block javascripts %}{% endblock %}
-  {% include 'AppBundle::footer.html.twig' %}
+    {% if app.user %}
+      {% block javascripts %}{% endblock %}
+      {% include 'AppBundle::footer.html.twig' %}
+    {% endif %}
+
   </body>
 </html>
