@@ -1,0 +1,22 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% set title="Erreur 404" %}
+
+{% block body %}
+<div class="container">
+  <div class="well">
+    <div class="jumbotron text-center">
+      <h1 class="">\_G&lt;&nbsp;<i class="fa fa-fw fa-question"></i></h1>
+      <br/>
+      <h2>Page non trouvée</h2>
+      <p>
+        Comme à une soirée BdE, il semblerait que ce soit désert, par ici. Taper n'importe quoi dans la barre d'URL ne permet pas de trouver d'article caché. Ou alors, vous n'avez pas tapé le bon n'importe quoi.
+      </p>
+      <!-- Indice : il n'y a pas d'article caché à l'URI /letTheFunBegin -->
+      <p>
+        <a href="/"><i class="fa fa-fw fa-chevron-left"></i> Retour à l'accueil</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

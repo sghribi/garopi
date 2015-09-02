@@ -1,0 +1,21 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% set title = "Erreur 500"%}
+
+{% block body %}
+<div class="container">
+  <div class="well">
+    <div class="jumbotron text-center">
+      <h1 class="">\_G&lt;&nbsp;<i class="fa fa-fw fa-bomb"></i></h1>
+      <br/>
+      <h2>Erreur interne du serveur</h2>
+      <p>
+        Comme un sonus AdR qui voudrait faire son kéké avec sa table de mixage, votre comportement est imprévisible et par conséquent, tout a pété. Merci d'envoyer l'URL incriminée à <a href="mailto:garopi@my.ecp.fr">garopi@my.ecp.fr</a>, avec un minimum de contexte, pour que nous réglions le problème.
+      </p>
+      <p>
+        <a href="/"><i class="fa fa-fw fa-chevron-left"></i> Retour à l'accueil</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

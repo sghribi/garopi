@@ -40,8 +40,10 @@
   </head>
 
   <body class="{{ body_class|default('') }}">
-  {% include 'AppBundle::socials.html.twig' %}
-  {% include 'AppBundle::flash.html.twig' %}
+    {% if app.user %}
+      {% include 'AppBundle::socials.html.twig' %}
+      {% include 'AppBundle::flash.html.twig' %}
+    {% endif %}
 
   {# Defining current cateogry #}
   {% if currentCategory is not defined %}
