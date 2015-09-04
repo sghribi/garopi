@@ -88,4 +88,37 @@ class ArticleRepository extends EntityRepository
 
         return $qb;
     }
+
+    /**
+     * @param int $nb
+     *
+     * @return Article[]
+     */
+    public function getMostRead($nb = 3)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->select('a article, SIZE(a.readings) nb_readings')
+            ->where('a.published = true')
+            ->orderBy('nb_readings', 'DESC')
+            ->setMaxResults($nb);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param int $nb
+     *
+     * @return Article[]
+     */
+    public function getMostCommented($nb = 3)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->select('a article, SIZE(a.comments) nb_comments')
+            ->where('a.published = true')
+            ->orderBy('nb_comments', 'DESC')
+            ->setMaxResults($nb);
+
+        return $qb->getQuery()->getResult();
+    }
+
 }
