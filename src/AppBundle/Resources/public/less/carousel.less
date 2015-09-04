@@ -23,14 +23,7 @@
     }
 
     p {
-      @nbLines: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: @nbLines;
-      line-height: 1em;
-      max-height: 1em*@nbLines;
+      .text-on-n-lines(1);
       padding-left: 10px;
       padding-right: 10px;
     }

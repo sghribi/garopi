@@ -126,6 +126,41 @@
           </div>
         {% endif %}
 
+        {# Derniers commentaires #}
+        <div class="module comments">
+          <div class="invert">
+            <h3><i class="fa fa-fw fa-comments-o"></i>&nbsp;Derniers commentaires&nbsp;<i class="fa fa-fw fa-comments-o"></i></h3>
+          </div>
+          {% for comment in comments %}
+            <p class="comment">
+              Sur <a href="{{ path('app_article_show', {slug: comment.article.slug}) }}"><i>{{ comment.article.title }}</i></a>, par {{ comment.author }}
+            </p>
+            <hr/>
+          {% endfor %}
+        </div>
+
+        {# Articles les plus lus #}
+        <div class="module most-popular">
+          <div class="invert">
+            <h3><i class="fa fa-fw fa-star"></i>&nbsp;Articles populaires&nbsp;<i class="fa fa-fw fa-star"></i></h3>
+          </div>
+
+          Les plus lus
+          <ol>
+            {% for stats in mostRead %}
+              <li><a href="{{ path('app_article_show', {slug: stats.article.slug}) }}">{{ stats.article.title }}</a></li>
+            {% endfor %}
+          </ol>
+          <hr/>
+
+          Les plus commentés
+          <ol>
+            {% for stats in mostCommented %}
+              <li><a href="{{ path('app_article_show', {slug: stats.article.slug}) }}">{{ stats.article.title }}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+
         {# Horoscope #}
         <div class="module horoscope">
           <div class="invert">

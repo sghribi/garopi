@@ -26,6 +26,9 @@ class HomepageController extends Controller
         $last3Articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticles(3);
         $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
         $quote = $this->getDoctrine()->getRepository('AppBundle:Quote')->getOneRandomQuote();
+        $last3Comments = $this->getDoctrine()->getRepository('AppBundle:Comment')->getLastComments(3);
+        $mostRead = $this->getDoctrine()->getRepository('AppBundle:Article')->getMostRead(3);
+        $mostCommented = $this->getDoctrine()->getRepository('AppBundle:Article')->getMostCommented(3);
 
         //@TODO: can be optimised...
         $articlesByCategory = array();
@@ -42,6 +45,9 @@ class HomepageController extends Controller
             'articlesByCategory' => $articlesByCategory,
             'horoscopes' => $horoscopes,
             'quote' => $quote,
+            'comments' => $last3Comments,
+            'mostRead' => $mostRead,
+            'mostCommented' => $mostCommented,
         );
     }
 

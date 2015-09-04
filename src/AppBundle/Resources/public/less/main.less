@@ -1,6 +1,18 @@
 // Variables
 @base_background: lightslategray;
 
+
+// Mixins
+.text-on-n-lines(@nb_lines) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @nb_lines;
+  line-height: 1em;
+  max-height: 1em*@nb_lines;
+}
+
 // Include bootstrap3 with : font-awesome + jasny-bootstrap
 @import "../../../../../app/Resources/less/bootstrap.less";
 
