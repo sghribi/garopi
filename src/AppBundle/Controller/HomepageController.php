@@ -24,7 +24,7 @@ class HomepageController extends Controller
     {
         $articlesWithCover = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticlesWithCover();
         $last3Articles = $this->getDoctrine()->getRepository('AppBundle:Article')->getLastArticles(3);
-        $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
+        $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findBy(array(), array('order' => 'ASC'));
         $quote = $this->getDoctrine()->getRepository('AppBundle:Quote')->getOneRandomQuote();
         $last3Comments = $this->getDoctrine()->getRepository('AppBundle:Comment')->getLastComments(3);
         $mostRead = $this->getDoctrine()->getRepository('AppBundle:Article')->getMostRead(3);
