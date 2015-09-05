@@ -75,7 +75,7 @@ class HomepageController extends Controller
      */
     public function menuAction(ArticleCategory $currentCategory = null)
     {
-        $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findAll();
+        $categories = $this->getDoctrine()->getRepository('AppBundle:ArticleCategory')->findBy(array(), array('order' => 'ASC'));
 
         return array(
             'categories' => $categories,
