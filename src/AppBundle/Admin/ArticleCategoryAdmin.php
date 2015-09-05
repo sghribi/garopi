@@ -37,6 +37,7 @@ class ArticleCategoryAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('name', null, array('editable' => true))
+            ->add('description', null, array('editable' => true))
             ->add('slug')
             ->add('order', null, array('editable' => true))
             ->add('nbArticles')
@@ -59,6 +60,7 @@ class ArticleCategoryAdmin extends Admin
         $formMapper
             ->add('id')
             ->add('name')
+            ->add('description')
             ->add('order')
             ->add('fontawesomeClass')
         ;
@@ -71,6 +73,7 @@ class ArticleCategoryAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('name')
+            ->add('description')
             ->add('slug')
             ->add('order')
             ->add('articles')
