@@ -109,6 +109,39 @@
     <div class="aside">
       <div class="module-wrapper">
 
+        {# Horoscope #}
+        <div class="module horoscope">
+          <div class="invert">
+            {% if is_granted('ROLE_ADMIN') %}
+              <div class="pull-right"><a href="{{ path('sonata_horoscope_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
+            {% endif %}
+            <h3><i class="fa fa-fw fa-diamond"></i>&nbsp;Horoscope&nbsp;<i class="fa fa-fw fa-diamond"></i></h3>
+          </div>
+          <div class="horoscopes">
+
+            {# @TODO #}
+            <ul class="nav nav-pills nav-justified horoscope-select" role="tablist">
+              {% for horoscope in horoscopes %}
+                <li role="tab" class="{% if loop.index == 1 %}active{% endif %}">
+                  <a aria-controls="horoscope-{{ horoscope.letter }}" data-toggle="tab" href="#horoscope-{{ horoscope.letter }}">{{ horoscope.letter }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            <hr/>
+
+            <div class="tab-content">
+              {% for horoscope in horoscopes %}
+                <div role="tabpanel" class="tab-pane {% if loop.index == 1 %}active{% endif %}" id="horoscope-{{ horoscope.letter }}">
+                  <blockquote>
+                    <p>{{ horoscope.content }}</p>
+                    <footer>Signé, <cite title="Source Title">{{ horoscope.authorName }}</cite></footer>
+                  </blockquote>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
         {# Quote #}
         {% if quote %}
           <div class="module quote">
@@ -125,6 +158,31 @@
             </blockquote>
           </div>
         {% endif %}
+
+        {# Twitter/Facebook #}
+        <div class="module social">
+          <div class="invert">
+            <h3><i class="fa fa-fw fa-facebook"></i>&nbsp;Suis-nous&nbsp;<i class="fa fa-fw fa-envelope"></i></h3>
+          </div>
+
+          <label class="notify-by-mail text-center">
+            <input type="checkbox" {% if app.user.wantsToReceiveMails %}checked{% endif %}>
+            Notifications mail à chaque nouvel article
+            <p class="text-danger failure" style="display: none;">Échec, veuillez recommencer.</p>
+            <p class="text-success success" style="display: none;">Ta modification a bien été prise en compte.</p>
+          </label>
+
+          <hr/>
+
+          <div>
+            <a href="https://www.facebook.com/legaropi" class="btn btn-primary col-sm-4 col-sm-offset-1" target="_blank">
+              <i class="fa fa-fw fa-facebook"></i>&nbsp;Facebook
+            </a>
+            <div class="fb-like col-sm-4 col-sm-offset-2" data-href="https://www.facebook.com/legaropi" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+          </div>
+
+          <div class="clearfix"></div>
+        </div>
 
         {# Derniers commentaires #}
         <div class="module comments">
@@ -159,71 +217,6 @@
               <li><a href="{{ path('app_article_show', {slug: stats.article.slug}) }}">{{ stats.article.title }}</a></li>
             {% endfor %}
           </ol>
-        </div>
-
-        {# Horoscope #}
-        <div class="module horoscope">
-          <div class="invert">
-            {% if is_granted('ROLE_ADMIN') %}
-              <div class="pull-right"><a href="{{ path('sonata_horoscope_list') }}" target="_blank"><i class="fa fa-fw fa-cog"></i></a></div>
-            {% endif %}
-            <h3><i class="fa fa-fw fa-diamond"></i>&nbsp;Horoscope&nbsp;<i class="fa fa-fw fa-diamond"></i></h3>
-          </div>
-          <div class="horoscopes">
-
-            {# @TODO #}
-            <ul class="nav nav-pills nav-justified horoscope-select" role="tablist">
-              {% for horoscope in horoscopes %}
-                <li role="tab" class="{% if loop.index == 1 %}active{% endif %}">
-                  <a aria-controls="horoscope-{{ horoscope.letter }}" data-toggle="tab" href="#horoscope-{{ horoscope.letter }}">{{ horoscope.letter }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-            <hr/>
-
-            <div class="tab-content">
-              {% for horoscope in horoscopes %}
-                <div role="tabpanel" class="tab-pane {% if loop.index == 1 %}active{% endif %}" id="horoscope-{{ horoscope.letter }}">
-                  <blockquote>
-                    <p>{{ horoscope.content }}</p>
-                    <footer>Signé, <cite title="Source Title">{{ horoscope.authorName }}</cite></footer>
-                  </blockquote>
-                </div>
-              {% endfor %}
-            </div>
-          </div>
-        </div>
-
-        {# Twitter/Facebook #}
-        <div class="module social">
-          <div class="invert">
-            <h3><i class="fa fa-fw fa-facebook"></i>&nbsp;Suis-nous&nbsp;<i class="fa fa-fw fa-envelope"></i></h3>
-          </div>
-
-          <label class="notify-by-mail text-center">
-            <input type="checkbox" {% if app.user.wantsToReceiveMails %}checked{% endif %}>
-            Notifications mail à chaque nouvel article
-            <p class="text-danger failure" style="display: none;">Échec, veuillez recommencer.</p>
-            <p class="text-success success" style="display: none;">Ta modification a bien été prise en compte.</p>
-          </label>
-
-          <hr/>
-
-          <div>
-            <a href="https://www.facebook.com/legaropi" class="btn btn-primary col-sm-4 col-sm-offset-1" target="_blank">
-              <i class="fa fa-fw fa-facebook"></i>&nbsp;Facebook
-            </a>
-            <div class="fb-like col-sm-4 col-sm-offset-2" data-href="https://www.facebook.com/legaropi" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
-          </div>
-
-          <div class="clearfix"></div>
-          <hr/>
-
-          <div>
-            <a href="https://my.ecp.fr/g/garopi" target="_blank" class="btn btn-default col-sm-4 col-sm-offset-1">MyECP</a>
-          </div>
-          <div class="clearfix"></div>
-
         </div>
 
       </div>
