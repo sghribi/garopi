@@ -134,7 +134,7 @@
                 <div role="tabpanel" class="tab-pane {% if loop.index == 1 %}active{% endif %}" id="horoscope-{{ horoscope.letter }}">
                   <blockquote>
                     <p>{{ horoscope.content }}</p>
-                    <footer>Signé, <cite title="Source Title">{{ horoscope.authorName }}</cite></footer>
+                    {#<footer>Signé, <cite title="Source Title">{{ horoscope.authorName }}</cite></footer>#}
                   </blockquote>
                 </div>
               {% endfor %}
