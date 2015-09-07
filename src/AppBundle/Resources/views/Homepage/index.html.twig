@@ -79,7 +79,7 @@
               <a class="pull-right text-muted" href="{{ path('app_category_show', {slug: category.slug}) }}"><i class="fa fa-fw fa-plus-square"></i>Voir tous les articles</a>
               <h2 class="category-title">
                 {% if category.fontawesomeClass %}<i class="fa fa-fw fa-{{ category.fontawesomeClass }} hidden-xs"></i> {% endif %}
-                {{ category.name }}
+                <a href="{{ path('app_category_show', {slug: category.slug}) }}">{{ category.name }}</a>
                 <br/>
                 <small>{{ category.description }}</small>
               </h2>
