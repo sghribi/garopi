@@ -123,16 +123,16 @@ class ArticleAdmin extends Admin
         }
     }
 
-    /**
-     * @param Article $object
-     */
-    public function postPersist($object)
-    {
-        if ($object->getPublished() && !$object->getEmailSent()) {
-            $object->setEmailSent(true);
-            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
-        }
-    }
+//    /**
+//     * @param Article $object
+//     */
+//    public function postPersist($object)
+//    {
+//        if ($object->getPublished() && !$object->getEmailSent()) {
+//            $object->setEmailSent(true);
+//            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
+//        }
+//    }
 
     /**
      * @param Article $object
@@ -144,14 +144,14 @@ class ArticleAdmin extends Admin
         }
     }
 
-    /**
-     * @param Article $object
-     */
-    public function postUpdate($object)
-    {
-        if ($object->getPublished() && !$object->getEmailSent()) {
-            $object->setEmailSent(true);
-            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
-        }
-    }
+//    /**
+//     * @param Article $object
+//     */
+//    public function postUpdate($object)
+//    {
+//        if ($object->getPublished() && !$object->getEmailSent()) {
+//            $object->setEmailSent(true);
+//            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
+//        }
+//    }
 }
