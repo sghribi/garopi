@@ -10,6 +10,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class ArticleAdmin
@@ -18,6 +19,11 @@ class ArticleAdmin extends Admin
 {
     protected $baseRouteName = 'sonata_article';
     protected $baseRoutePattern = 'articles';
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('send_email', $this->getRouterIdParameter().'/send-email');
+    }
 
     /**
      * @param DatagridMapper $datagridMapper
@@ -44,13 +50,11 @@ class ArticleAdmin extends Admin
     {
         $listMapper
             ->add('id')
+            ->add('category', null, array('editable' => true))
             ->add('title', null, array('editable' => true))
             ->add('summary', null, array('editable' => true))
-            ->add('slug')
             ->add('published', null, array('editable' => true))
             ->add('emailSent', null, array('editable' => true))
-            ->add('category', null, array('editable' => true))
-            ->add('authorName', null, array('editable' => true))
             ->add('createdAt')
             ->add('nbComments')
             ->add('_action', 'actions', array(
@@ -58,6 +62,9 @@ class ArticleAdmin extends Admin
                     'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
+                    'Send email' => array(
+                        'template' => 'SonataAdminBundle:CRUD:list__action_send_email.html.twig'
+                    )
                 )
             ))
         ;
@@ -123,17 +130,6 @@ class ArticleAdmin extends Admin
         }
     }
 
-//    /**
-//     * @param Article $object
-//     */
-//    public function postPersist($object)
-//    {
-//        if ($object->getPublished() && !$object->getEmailSent()) {
-//            $object->setEmailSent(true);
-//            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
-//        }
-//    }
-
     /**
      * @param Article $object
      */
@@ -143,15 +139,4 @@ class ArticleAdmin extends Admin
             $media->setArticle($object);
         }
     }
-
-//    /**
-//     * @param Article $object
-//     */
-//    public function postUpdate($object)
-//    {
-//        if ($object->getPublished() && !$object->getEmailSent()) {
-//            $object->setEmailSent(true);
-//            $this->getConfigurationPool()->getContainer()->get('event_dispatcher')->dispatch(Events::ARTICLE_PUBLISHED, new Events\ArticleEvent($object));
-//        }
-//    }
 }

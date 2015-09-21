@@ -71,7 +71,7 @@ services:
         arguments:
             - ~
             - AppBundle\Entity\Article
-            - ~
+            - AppBundle:ArticleAdmin
 
     sonata.admin.comment:
         class: AppBundle\Admin\CommentAdmin
