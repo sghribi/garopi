@@ -1,4 +1,10 @@
 AppBundle\Entity\ArticleCategory:
+    articlecategory_news:
+        name: "Dépêches"
+        slug: "depeches"
+        order: 0
+        fontawesomeClass: 'bullhorn'
+        description: "Le Garopi, premier sur l'info."
     articlecategory_centrale:
         name: "Centrale"
         slug: "centrale"

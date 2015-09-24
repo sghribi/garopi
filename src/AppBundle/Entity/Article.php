@@ -46,10 +46,9 @@ class Article
     /**
      * @var string
      *
-     * @Assert\NotBlank(message="Merci de préciser un contenu.")
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="content", type="text", nullable=true)
      */
-    protected $content;
+    protected $content = "";
 
     /**
      * @var string

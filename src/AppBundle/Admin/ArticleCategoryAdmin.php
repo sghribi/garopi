@@ -27,6 +27,7 @@ class ArticleCategoryAdmin extends Admin
             ->add('name')
             ->add('order')
             ->add('fontawesomeClass')
+            ->add('displayedOnHomepage')
         ;
     }
     /**
@@ -42,6 +43,7 @@ class ArticleCategoryAdmin extends Admin
             ->add('order', null, array('editable' => true))
             ->add('nbArticles')
             ->add('fontawesomeClass')
+            ->add('displayedOnHomepage')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -58,11 +60,13 @@ class ArticleCategoryAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('name')
             ->add('description')
             ->add('order')
             ->add('fontawesomeClass')
+            ->add('displayedOnHomepage', null, array(
+                'required' => false,
+            ))
         ;
     }
     /**
@@ -78,6 +82,7 @@ class ArticleCategoryAdmin extends Admin
             ->add('order')
             ->add('articles')
             ->add('fontawesomeClass')
+            ->add('displayedOnHomepage')
         ;
     }
 }

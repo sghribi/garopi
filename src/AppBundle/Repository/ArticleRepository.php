@@ -38,7 +38,9 @@ class ArticleRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('a')
             ->leftJoin('a.medias', 'am')
+            ->leftJoin('a.category', 'c')
             ->where('a.published = true')
+            ->andWhere('c.displayedOnHomepage = true')
             ->groupBy('a.id')
             ->orderBy('a.createdAt', 'DESC')
             ->setMaxResults($nb);

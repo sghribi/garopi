@@ -87,6 +87,7 @@ class ArticleAdmin extends Admin
                 'attr' => array(
                     'class' => 'ckeditor',
                 ),
+                'required' => false,
             ))
             ->add('medias', 'sonata_type_collection', array(
                 'required' => false,

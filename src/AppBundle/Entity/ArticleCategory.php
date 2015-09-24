@@ -58,6 +58,13 @@ class ArticleCategory
     protected $fontawesomeClass;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="displayed_on_homepage", type="boolean", options={"default": true})
+     */
+    protected $displayedOnHomepage = true;
+
+    /**
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=128, unique=true)
      */
@@ -256,5 +263,28 @@ class ArticleCategory
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set displayedOnHomepage
+     *
+     * @param boolean $displayedOnHomepage
+     * @return ArticleCategory
+     */
+    public function setDisplayedOnHomepage($displayedOnHomepage)
+    {
+        $this->displayedOnHomepage = $displayedOnHomepage;
+
+        return $this;
+    }
+
+    /**
+     * Get displayedOnHomepage
+     *
+     * @return boolean 
+     */
+    public function getDisplayedOnHomepage()
+    {
+        return $this->displayedOnHomepage;
     }
 }
